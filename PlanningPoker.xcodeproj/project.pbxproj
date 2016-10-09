@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A62E7801DA9FEF600639743 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */; };
+		1A62E7811DA9FEF700639743 /* ReactiveKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A62E7821DA9FEF700639743 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A961DA9CCF100CF2E6E /* Bond.framework */; };
+		1A62E7831DA9FEF700639743 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A961DA9CCF100CF2E6E /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A62E7841DA9FEF700639743 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */; };
+		1A62E7851DA9FEF700639743 /* Swinject.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A62E7861DA9FEF700639743 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; };
+		1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E031DAAC5E700299FFC /* Card.swift */; };
+		1A8A2E061DAAC6E800299FFC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E051DAAC6E800299FFC /* README.md */; };
+		1AAA5A7A1DA9C72400CF2E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5A791DA9C72400CF2E6E /* AppDelegate.swift */; };
+		1AAA5A7F1DA9C72400CF2E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AAA5A7D1DA9C72400CF2E6E /* Main.storyboard */; };
+		1AAA5A811DA9C72400CF2E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AAA5A801DA9C72400CF2E6E /* Assets.xcassets */; };
+		1AAA5A841DA9C72400CF2E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AAA5A821DA9C72400CF2E6E /* LaunchScreen.storyboard */; };
+		1AAA5A8C1DA9C99B00CF2E6E /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1AAA5A8B1DA9C99B00CF2E6E /* Cartfile */; };
+		1AAA5A9D1DA9CD4E00CF2E6E /* Bond.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1AAA5A901DA9CCE700CF2E6E /* Bond.framework.dSYM */; };
+		1AAA5A9E1DA9CD5000CF2E6E /* Swinject.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1AAA5A911DA9CCE700CF2E6E /* Swinject.framework.dSYM */; };
+		1AAA5A9F1DA9CD5200CF2E6E /* SwinjectStoryboard.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1AAA5A921DA9CCE700CF2E6E /* SwinjectStoryboard.framework.dSYM */; };
+		1AAA5AA41DA9CDF700CF2E6E /* ReactiveKit.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1AAA5AA01DA9CD9900CF2E6E /* ReactiveKit.framework.dSYM */; };
+		1AAA5AA81DA9CF1A00CF2E6E /* MPCSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AA61DA9CF1A00CF2E6E /* MPCSerializable.swift */; };
+		1AAA5AA91DA9CF1A00CF2E6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AA71DA9CF1A00CF2E6E /* User.swift */; };
+		1AAA5AB21DA9D6F100CF2E6E /* ISessionSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AAC1DA9D6F100CF2E6E /* ISessionSelectorViewModel.swift */; };
+		1AAA5AB31DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */; };
+		1AAA5AB41DA9D6F100CF2E6E /* IVotingSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AAE1DA9D6F100CF2E6E /* IVotingSessionViewModel.swift */; };
+		1AAA5AB51DA9D6F100CF2E6E /* SessionSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AAF1DA9D6F100CF2E6E /* SessionSelectorViewModel.swift */; };
+		1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */; };
+		1AAA5AB71DA9D6F100CF2E6E /* VotingSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB11DA9D6F100CF2E6E /* VotingSessionViewModel.swift */; };
+		1AAA5ABB1DA9D74B00CF2E6E /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */; };
+		1AAA5ABC1DA9D74B00CF2E6E /* IConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */; };
+		1AAA5AC11DA9D94200CF2E6E /* SessionSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABD1DA9D94200CF2E6E /* SessionSelectorViewController.swift */; };
+		1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */; };
+		1AAA5AC41DA9D94200CF2E6E /* VotingSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AC01DA9D94200CF2E6E /* VotingSessionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A62E7881DA9FEF700639743 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */,
+				1A62E7851DA9FEF700639743 /* Swinject.framework in Embed Frameworks */,
+				1A62E7811DA9FEF700639743 /* ReactiveKit.framework in Embed Frameworks */,
+				1A62E7831DA9FEF700639743 /* Bond.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1AAA5A9C1DA9CD3900CF2E6E /* Copy dSYMs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				1AAA5AA41DA9CDF700CF2E6E /* ReactiveKit.framework.dSYM in Copy dSYMs */,
+				1AAA5A9D1DA9CD4E00CF2E6E /* Bond.framework.dSYM in Copy dSYMs */,
+				1AAA5A9E1DA9CD5000CF2E6E /* Swinject.framework.dSYM in Copy dSYMs */,
+				1AAA5A9F1DA9CD5200CF2E6E /* SwinjectStoryboard.framework.dSYM in Copy dSYMs */,
+			);
+			name = "Copy dSYMs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A8A2E031DAAC5E700299FFC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1A8A2E051DAAC6E800299FFC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1AAA5A761DA9C72400CF2E6E /* PlanningPoker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanningPoker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AAA5A791DA9C72400CF2E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1AAA5A7E1DA9C72400CF2E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1AAA5A801DA9C72400CF2E6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1AAA5A831DA9C72400CF2E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1AAA5A851DA9C72400CF2E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AAA5A8B1DA9C99B00CF2E6E /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		1AAA5A901DA9CCE700CF2E6E /* Bond.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Bond.framework.dSYM; path = Carthage/Build/iOS/Bond.framework.dSYM; sourceTree = "<group>"; };
+		1AAA5A911DA9CCE700CF2E6E /* Swinject.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Swinject.framework.dSYM; path = Carthage/Build/iOS/Swinject.framework.dSYM; sourceTree = "<group>"; };
+		1AAA5A921DA9CCE700CF2E6E /* SwinjectStoryboard.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwinjectStoryboard.framework.dSYM; path = Carthage/Build/iOS/SwinjectStoryboard.framework.dSYM; sourceTree = "<group>"; };
+		1AAA5A961DA9CCF100CF2E6E /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectStoryboard.framework; path = Carthage/Build/iOS/SwinjectStoryboard.framework; sourceTree = "<group>"; };
+		1AAA5AA01DA9CD9900CF2E6E /* ReactiveKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = ReactiveKit.framework.dSYM; path = Carthage/Build/iOS/ReactiveKit.framework.dSYM; sourceTree = "<group>"; };
+		1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
+		1AAA5AA61DA9CF1A00CF2E6E /* MPCSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCSerializable.swift; sourceTree = "<group>"; };
+		1AAA5AA71DA9CF1A00CF2E6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1AAA5AAC1DA9D6F100CF2E6E /* ISessionSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISessionSelectorViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IUserRoleSelectorViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AAE1DA9D6F100CF2E6E /* IVotingSessionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IVotingSessionViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AAF1DA9D6F100CF2E6E /* SessionSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSelectorViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AB11DA9D6F100CF2E6E /* VotingSessionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSessionViewModel.swift; sourceTree = "<group>"; };
+		1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IConnectionManager.swift; sourceTree = "<group>"; };
+		1AAA5ABD1DA9D94200CF2E6E /* SessionSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionSelectorViewController.swift; sourceTree = "<group>"; };
+		1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewController.swift; sourceTree = "<group>"; };
+		1AAA5AC01DA9D94200CF2E6E /* VotingSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingSessionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1AAA5A731DA9C72300CF2E6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A62E7861DA9FEF700639743 /* SwinjectStoryboard.framework in Frameworks */,
+				1A62E7841DA9FEF700639743 /* Swinject.framework in Frameworks */,
+				1A62E7801DA9FEF600639743 /* ReactiveKit.framework in Frameworks */,
+				1A62E7821DA9FEF700639743 /* Bond.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1AAA5A6D1DA9C72300CF2E6E = {
+			isa = PBXGroup;
+			children = (
+				1A8A2E051DAAC6E800299FFC /* README.md */,
+				1AAA5A8B1DA9C99B00CF2E6E /* Cartfile */,
+				1AAA5A781DA9C72400CF2E6E /* PlanningPoker */,
+				1AAA5A771DA9C72400CF2E6E /* Products */,
+				1AAA5A8D1DA9CB1400CF2E6E /* Frameworks */,
+				1AAA5A8E1DA9CB2300CF2E6E /* dSYMs */,
+			);
+			sourceTree = "<group>";
+		};
+		1AAA5A771DA9C72400CF2E6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5A761DA9C72400CF2E6E /* PlanningPoker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1AAA5A781DA9C72400CF2E6E /* PlanningPoker */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AB81DA9D70F00CF2E6E /* Services */,
+				1AAA5AA51DA9CF1000CF2E6E /* Models */,
+				1AAA5AAA1DA9CF6300CF2E6E /* ViewModels */,
+				1AAA5AAB1DA9CF7100CF2E6E /* Views */,
+				1AAA5A791DA9C72400CF2E6E /* AppDelegate.swift */,
+				1AAA5A801DA9C72400CF2E6E /* Assets.xcassets */,
+				1AAA5A821DA9C72400CF2E6E /* LaunchScreen.storyboard */,
+				1AAA5A851DA9C72400CF2E6E /* Info.plist */,
+			);
+			path = PlanningPoker;
+			sourceTree = "<group>";
+		};
+		1AAA5A8D1DA9CB1400CF2E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */,
+				1AAA5A961DA9CCF100CF2E6E /* Bond.framework */,
+				1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */,
+				1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AAA5A8E1DA9CB2300CF2E6E /* dSYMs */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AA01DA9CD9900CF2E6E /* ReactiveKit.framework.dSYM */,
+				1AAA5A901DA9CCE700CF2E6E /* Bond.framework.dSYM */,
+				1AAA5A911DA9CCE700CF2E6E /* Swinject.framework.dSYM */,
+				1AAA5A921DA9CCE700CF2E6E /* SwinjectStoryboard.framework.dSYM */,
+			);
+			name = dSYMs;
+			sourceTree = "<group>";
+		};
+		1AAA5AA51DA9CF1000CF2E6E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AA61DA9CF1A00CF2E6E /* MPCSerializable.swift */,
+				1AAA5AA71DA9CF1A00CF2E6E /* User.swift */,
+				1A8A2E031DAAC5E700299FFC /* Card.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1AAA5AAA1DA9CF6300CF2E6E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AAC1DA9D6F100CF2E6E /* ISessionSelectorViewModel.swift */,
+				1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */,
+				1AAA5AAE1DA9D6F100CF2E6E /* IVotingSessionViewModel.swift */,
+				1AAA5AAF1DA9D6F100CF2E6E /* SessionSelectorViewModel.swift */,
+				1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */,
+				1AAA5AB11DA9D6F100CF2E6E /* VotingSessionViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		1AAA5AAB1DA9CF7100CF2E6E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5A7D1DA9C72400CF2E6E /* Main.storyboard */,
+				1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */,
+				1AAA5ABD1DA9D94200CF2E6E /* SessionSelectorViewController.swift */,
+				1AAA5AC01DA9D94200CF2E6E /* VotingSessionViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1AAA5AB81DA9D70F00CF2E6E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */,
+				1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1AAA5A751DA9C72300CF2E6E /* PlanningPoker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AAA5A881DA9C72400CF2E6E /* Build configuration list for PBXNativeTarget "PlanningPoker" */;
+			buildPhases = (
+				1AAA5A721DA9C72300CF2E6E /* Sources */,
+				1AAA5A731DA9C72300CF2E6E /* Frameworks */,
+				1AAA5A741DA9C72300CF2E6E /* Resources */,
+				1AAA5A8F1DA9CBFB00CF2E6E /* Carthage Frameworks */,
+				1AAA5A9C1DA9CD3900CF2E6E /* Copy dSYMs */,
+				1A62E7881DA9FEF700639743 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlanningPoker;
+			productName = PlanningPoker;
+			productReference = 1AAA5A761DA9C72400CF2E6E /* PlanningPoker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1AAA5A6E1DA9C72300CF2E6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Brandon James";
+				TargetAttributes = {
+					1AAA5A751DA9C72300CF2E6E = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = SX7N8Q9N6Z;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1AAA5A711DA9C72300CF2E6E /* Build configuration list for PBXProject "PlanningPoker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1AAA5A6D1DA9C72300CF2E6E;
+			productRefGroup = 1AAA5A771DA9C72400CF2E6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1AAA5A751DA9C72300CF2E6E /* PlanningPoker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1AAA5A741DA9C72300CF2E6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AAA5A841DA9C72400CF2E6E /* LaunchScreen.storyboard in Resources */,
+				1AAA5A811DA9C72400CF2E6E /* Assets.xcassets in Resources */,
+				1AAA5A8C1DA9C99B00CF2E6E /* Cartfile in Resources */,
+				1AAA5A7F1DA9C72400CF2E6E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1AAA5A8F1DA9CBFB00CF2E6E /* Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Bond.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
+			);
+			name = "Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AAA5A721DA9C72300CF2E6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AAA5AB71DA9D6F100CF2E6E /* VotingSessionViewModel.swift in Sources */,
+				1AAA5AB21DA9D6F100CF2E6E /* ISessionSelectorViewModel.swift in Sources */,
+				1AAA5AC41DA9D94200CF2E6E /* VotingSessionViewController.swift in Sources */,
+				1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */,
+				1AAA5AA91DA9CF1A00CF2E6E /* User.swift in Sources */,
+				1AAA5AB51DA9D6F100CF2E6E /* SessionSelectorViewModel.swift in Sources */,
+				1A8A2E061DAAC6E800299FFC /* README.md in Sources */,
+				1AAA5AB31DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift in Sources */,
+				1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */,
+				1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */,
+				1AAA5ABC1DA9D74B00CF2E6E /* IConnectionManager.swift in Sources */,
+				1AAA5AC11DA9D94200CF2E6E /* SessionSelectorViewController.swift in Sources */,
+				1AAA5A7A1DA9C72400CF2E6E /* AppDelegate.swift in Sources */,
+				1AAA5AA81DA9CF1A00CF2E6E /* MPCSerializable.swift in Sources */,
+				1AAA5ABB1DA9D74B00CF2E6E /* ConnectionManager.swift in Sources */,
+				1AAA5AB41DA9D6F100CF2E6E /* IVotingSessionViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1AAA5A7D1DA9C72400CF2E6E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AAA5A7E1DA9C72400CF2E6E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1AAA5A821DA9C72400CF2E6E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1AAA5A831DA9C72400CF2E6E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1AAA5A861DA9C72400CF2E6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1AAA5A871DA9C72400CF2E6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1AAA5A891DA9C72400CF2E6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SX7N8Q9N6Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = PlanningPoker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonjames.PlanningPoker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1AAA5A8A1DA9C72400CF2E6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SX7N8Q9N6Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = PlanningPoker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandonjames.PlanningPoker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AAA5A711DA9C72300CF2E6E /* Build configuration list for PBXProject "PlanningPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AAA5A861DA9C72400CF2E6E /* Debug */,
+				1AAA5A871DA9C72400CF2E6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AAA5A881DA9C72400CF2E6E /* Build configuration list for PBXNativeTarget "PlanningPoker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AAA5A891DA9C72400CF2E6E /* Debug */,
+				1AAA5A8A1DA9C72400CF2E6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1AAA5A6E1DA9C72300CF2E6E /* Project object */;
+}

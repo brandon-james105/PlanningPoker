@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bQe-3f-Jdt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--This device is a...-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="userRoleSelector" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="UserRoleSelectorViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="toHostButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gec-aO-7Wz">
+                                <state key="normal" title="Host"/>
+                                <connections>
+                                    <segue destination="EPI-1P-V8s" kind="show" id="cjG-kw-alW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="toVoterButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-v7-0e8">
+                                <state key="normal" title="Voter"/>
+                                <connections>
+                                    <segue destination="tEj-79-5tU" kind="show" id="w45-R0-YNr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gec-aO-7Wz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="61" id="7eX-xN-mU2"/>
+                            <constraint firstItem="KcL-v7-0e8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9gN-pI-mY6"/>
+                            <constraint firstItem="gec-aO-7Wz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bfh-M2-PNo"/>
+                            <constraint firstItem="KcL-v7-0e8" firstAttribute="top" secondItem="gec-aO-7Wz" secondAttribute="bottom" constant="8" id="rZ9-jp-RPL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="This device is a..." id="Z9q-Fz-KMz"/>
+                    <connections>
+                        <outlet property="toHostButton" destination="gec-aO-7Wz" id="v7H-yv-4kR"/>
+                        <outlet property="toVoterButton" destination="KcL-v7-0e8" id="Awt-5i-6Ag"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="129.98500749625188"/>
+        </scene>
+        <!--Voter-->
+        <scene sceneID="7C6-6X-WwB">
+            <objects>
+                <viewController id="tEj-79-5tU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ekS-YR-5tI"/>
+                        <viewControllerLayoutGuide type="bottom" id="8v2-M6-ZQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PHd-Uf-b3q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Voter" id="M7u-kE-S64"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UCD-jj-YaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="458"/>
+        </scene>
+        <!--Host-->
+        <scene sceneID="zjV-JT-CDQ">
+            <objects>
+                <viewController storyboardIdentifier="sessionSelector" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPI-1P-V8s" customClass="SessionSelectorViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eUE-R3-i40"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dmu-56-pwR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fzd-6W-nh6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This session is for..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-5F-x6J">
+                                <frame key="frameInset" minX="112.5" minY="90" width="150" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-aR-fyF">
+                                <frame key="frameInset" minX="149" minY="216" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Complexity"/>
+                                <connections>
+                                    <segue destination="nCL-gd-7mi" kind="show" id="fFJ-it-SzR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deL-tf-dnZ">
+                                <frame key="frameInset" minX="136" minY="260" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Business Value"/>
+                                <connections>
+                                    <segue destination="nCL-gd-7mi" kind="show" id="MRj-Ic-Ysq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Host" id="aRf-Rm-18W"/>
+                    <connections>
+                        <outlet property="businessValueButton" destination="deL-tf-dnZ" id="nWW-qL-vtf"/>
+                        <outlet property="complexityButton" destination="6S4-aR-fyF" id="IIZ-Sq-ldf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QSM-we-Lke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032.8" y="-202.84857571214394"/>
+        </scene>
+        <!--Session Type-->
+        <scene sceneID="IKd-y2-G6l">
+            <objects>
+                <viewController storyboardIdentifier="votingSession" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nCL-gd-7mi" customClass="VotingSessionViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2eT-DB-qAv"/>
+                        <viewControllerLayoutGuide type="bottom" id="SgZ-tE-Sp2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vM4-QC-vcX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Session Type" id="TiF-hD-bdT"/>
+                    <connections>
+                        <outlet property="votingSessionTitleBar" destination="TiF-hD-bdT" id="IaX-QG-w8x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ3-4W-CIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-203"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ddv-tM-knI">
+            <objects>
+                <navigationController id="bQe-3f-Jdt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6md-Dt-IcB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5oO-CH-fae"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myo-in-Lb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="130"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fFJ-it-SzR"/>
+    </inferredMetricsTieBreakers>
+</document>
