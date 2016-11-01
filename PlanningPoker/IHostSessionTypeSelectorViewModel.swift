@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ISessionSelectorViewModel
+protocol IHostSessionTypeSelectorViewModel
 {
     // Write the implementation of the viewmodel here.
 }

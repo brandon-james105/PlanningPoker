@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class SessionSelectorViewController: UIViewController
+final class HostSessionTypeSelectorViewController: UIViewController
 {
-    public var viewModel: ISessionSelectorViewModel?
+    public var viewModel: IHostSessionTypeSelectorViewModel?
     
     @IBOutlet weak var complexityButton: UIButton!
     @IBOutlet weak var businessValueButton: UIButton!
@@ -25,8 +25,8 @@ final class SessionSelectorViewController: UIViewController
         if (sender is UIButton)
         {
             let sender = sender as! UIButton;
-            let votingSessionVC = segue.destination as! VotingSessionViewController;
-            votingSessionVC.viewModel!.sessionType = sender.currentTitle!
+            let hostLobbyVC = segue.destination as! HostLobbyViewController;
+            hostLobbyVC.viewModel!.sessionType = sender.currentTitle!
         }
     }
 }

@@ -1,4 +1,4 @@
-github "ReactiveKit/ReactiveKit" "v3.0.0-beta6"
+github "ReactiveKit/ReactiveKit" "v3.0.0"
 github "Swinject/Swinject" "2.0.0-beta.2"
-github "SwiftBond/Bond" "v5.0.0-beta8"
+github "SwiftBond/Bond" "v5.0.0"
 github "Swinject/SwinjectStoryboard" "1.0.0-beta.2"

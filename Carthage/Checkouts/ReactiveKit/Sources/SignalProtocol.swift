@@ -310,18 +310,16 @@ public extension SignalProtocol {
   }
 
   /// Converts signal into non-failable signal by suppressing the error.
-  public func suppressError(logging: Bool, completeOnError: Bool = false, file: String = #file, line: Int = #line) -> Signal<Element, NoError> {
+  public func suppressError(logging: Bool, file: String = #file, line: Int = #line) -> Signal<Element, NoError> {
     return Signal { observer in
       return self.observe { event in
         switch event {
         case .next(let element):
           observer.next(element)
         case .failed(let error):
-          if completeOnError {
-            observer.completed()
-          }
+          observer.completed()
           if logging {
-            print("Operation at \(file):\(line) encountered an error: \(error)")
+            print("Signal at \(file):\(line) encountered an error: \(error)")
           }
         case .completed:
           observer.completed()
@@ -331,8 +329,8 @@ public extension SignalProtocol {
   }
 
   /// Converts signal into non-failable signal by feeding suppressed error into a subject.
-  public func suppressAndFeedError<S: SubjectProtocol>(into listener: S, logging: Bool = true, completeOnError: Bool = false, file: String = #file, line: Int = #line) -> Signal<Element, NoError> where S.Element == Error {
-    return feedError(into: listener).suppressError(logging: logging, completeOnError: completeOnError, file: file, line: line)
+  public func suppressAndFeedError<S: SubjectProtocol>(into listener: S, logging: Bool = true, file: String = #file, line: Int = #line) -> Signal<Element, NoError> where S.Element == Error {
+    return feedError(into: listener).suppressError(logging: logging, file: file, line: line)
   }
 
   /// Recovers the signal by propagating default element if error happens.
@@ -701,27 +699,6 @@ extension SignalProtocol {
       return serialDisposable
     }
   }
-  
-  /// Filters (ignores) `.next` events that are generated recursively from an observer.
-  /// Applicable only with subjects.
-  public func filterRecursiveEvents() -> Signal<Element, Error> {
-    return Signal { observer in
-      var sending = false
-      return self.observe { event in
-        switch event {
-        case .next(let element):
-          guard !sending else { return }
-          sending = true
-          observer.next(element)
-          sending = false
-        case .failed(let error):
-          observer.failed(error)
-        case .completed:
-          observer.completed()
-        }
-      }
-    }
-  }
 
   /// Delay signal events for `interval` time.
   public func delay(interval: Double, on queue: DispatchQueue) -> Signal<Element, Error> {
@@ -760,23 +737,30 @@ extension SignalProtocol {
     }
   }
 
-  /// Use `doOn` to log various events.
-  public func debug(id: String = "Untitled Signal") -> Signal<Element, Error> {
+  /// Log various signal events. If title is not provided, source file and function names are printed instead.
+  public func debug(_ title: String? = nil, file: String = #file, function: String = #function, line: Int = #line) -> Signal<Element, Error> {
+    let prefix: String
+    if let title = title {
+      prefix = "[\(title)]"
+    } else {
+      let filename = file.components(separatedBy: "/").last ?? file
+      prefix = "[\(filename):\(function):\(line)]"
+    }
+
     return doOn(next: { element in
-      print("\(id): Next(\(element))")
+        print("\(prefix) next(\(element))")
       }, start: {
-        print("\(id): Start")
+        print("\(prefix) started")
       }, failed: { error in
-        print("\(id): \(error)")
+        print("\(prefix) failed: \(error)")
       }, completed: {
-        print("\(id): Completed")
+        print("\(prefix) completed")
       }, disposed: {
-        print("\(id): Disposed")
+        print("\(prefix) disposed")
     })
   }
 
-  /// Set the execution context in which to dispatch events (i.e. in which to run
-  /// observers).
+  /// Set the execution context used to dispatch events (i.e. to run the observers).
   public func observeIn(_ context: @escaping ExecutionContext) -> Signal<Element, Error> {
     return Signal { observer in
       return self.observe { event in
@@ -785,6 +769,11 @@ extension SignalProtocol {
         }
       }
     }
+  }
+
+  /// Set the dispatch queue used to dispatch events (i.e. to run the observers).
+  public func observeOn(_ queue: DispatchQueue) -> Signal<Element, Error> {
+    return observeIn(queue.context)
   }
 
   /// Supress events while last event generated on other signal is `false`.
@@ -975,7 +964,7 @@ public extension SignalProtocol where Element: SignalProtocol, Element.Error == 
   /// Flatten the signal by observing all inner signals and propagate events from each one as they come.
   public func merge() -> Signal<InnerElement, Error> {
     return Signal { observer in
-      let lock = NSRecursiveLock(name: "merge")
+      let lock = NSRecursiveLock(name: "com.reactivekit.merge")
       let compositeDisposable = CompositeDisposable()
       var numberOfOperations = 1 // 1 for outer signal
 
@@ -1021,7 +1010,7 @@ public extension SignalProtocol where Element: SignalProtocol, Element.Error == 
       let serialDisposable = SerialDisposable(otherDisposable: nil)
       let compositeDisposable = CompositeDisposable([serialDisposable])
       var completions = (outer: false, inner: false)
-      let lock = NSRecursiveLock(name: "switchToLatest")
+      let lock = NSRecursiveLock(name: "com.reactivekit.switchtolatest")
 
       compositeDisposable += self.observe { outerEvent in
         switch outerEvent {
@@ -1065,7 +1054,7 @@ public extension SignalProtocol where Element: SignalProtocol, Element.Error == 
   /// arrive, starting next observation only after previous one completes.
   public func concat() -> Signal<InnerElement, Error> {
     return Signal { observer in
-      let lock = NSRecursiveLock(name: "concat")
+      let lock = NSRecursiveLock(name: "com.reactivekit.concat")
       let serialDisposable = SerialDisposable(otherDisposable: nil)
       let compositeDisposable = CompositeDisposable([serialDisposable])
       var completions = (outer: false, inner: true)
@@ -1132,7 +1121,7 @@ extension SignalProtocol {
 
   fileprivate func _amb<O: SignalProtocol>(with other: O) -> Signal<Element, Error> where O.Element == Element, O.Error == Error {
     return Signal { observer in
-      let lock = NSRecursiveLock(name: "amb")
+      let lock = NSRecursiveLock(name: "com.reactivekit.amb")
       let disposable = (my: SerialDisposable(otherDisposable: nil), other: SerialDisposable(otherDisposable: nil))
       var dispatching = (me: false, other: false)
 
@@ -1169,7 +1158,7 @@ extension SignalProtocol {
 
   fileprivate func _combineLatest<O: SignalProtocol, U>(with other: O, combine: @escaping (Element, O.Element) -> U) -> Signal<U, Error> where O.Error == Error {
     return Signal { observer in
-      let lock = NSRecursiveLock(name: "combineLatestWith")
+      let lock = NSRecursiveLock(name: "com.reactivekit.combinelatestwith")
 
       var elements: (my: Element?, other: O.Element?)
       var completions: (me: Bool, other: Bool) = (false, false)

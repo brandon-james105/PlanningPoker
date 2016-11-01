@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bQe-3f-Jdt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bQe-3f-Jdt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,15 +21,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="toHostButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gec-aO-7Wz">
+                                <rect key="frame" x="171" y="125" width="33" height="30"/>
                                 <state key="normal" title="Host"/>
                                 <connections>
                                     <segue destination="EPI-1P-V8s" kind="show" id="cjG-kw-alW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="toVoterButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-v7-0e8">
+                                <rect key="frame" x="169" y="163" width="37" height="30"/>
                                 <state key="normal" title="Voter"/>
                                 <connections>
-                                    <segue destination="tEj-79-5tU" kind="show" id="w45-R0-YNr"/>
+                                    <segue destination="8SZ-Pp-aDh" kind="show" id="3Wp-4b-nhT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -50,28 +54,71 @@
             <point key="canvasLocation" x="136.80000000000001" y="129.98500749625188"/>
         </scene>
         <!--Voter-->
-        <scene sceneID="7C6-6X-WwB">
+        <scene sceneID="VN9-R5-FP1">
             <objects>
-                <viewController id="tEj-79-5tU" sceneMemberID="viewController">
+                <viewController id="8SZ-Pp-aDh" customClass="VoterSessionSelectorViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ekS-YR-5tI"/>
-                        <viewControllerLayoutGuide type="bottom" id="8v2-M6-ZQH"/>
+                        <viewControllerLayoutGuide type="top" id="6uX-AP-JZ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="eym-xo-iGM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PHd-Uf-b3q">
+                    <view key="view" contentMode="scaleToFill" id="o1a-gc-enM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Sessions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cn-ny-jCq">
+                                <rect key="frame" x="118" y="79" width="140" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="axc-Ye-Q9d">
+                                <rect key="frame" x="0.0" y="107.5" width="375" height="559.5"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-hV-eOK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="sessionCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="LzV-Ag-blg">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LzV-Ag-blg" id="Dry-vX-Tba">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="D6K-hV-eOK" secondAttribute="trailing" id="iOy-fI-r1K"/>
+                                    <constraint firstItem="D6K-hV-eOK" firstAttribute="leading" secondItem="axc-Ye-Q9d" secondAttribute="leading" id="pGv-r7-uI7"/>
+                                    <constraint firstItem="D6K-hV-eOK" firstAttribute="centerX" secondItem="axc-Ye-Q9d" secondAttribute="centerX" id="uqR-aJ-QUf"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Cn-ny-jCq" firstAttribute="top" secondItem="6uX-AP-JZ9" secondAttribute="bottom" constant="15" id="4ti-20-6kt"/>
+                            <constraint firstItem="axc-Ye-Q9d" firstAttribute="top" secondItem="3Cn-ny-jCq" secondAttribute="bottom" constant="8" symbolic="YES" id="6c7-LY-SSu"/>
+                            <constraint firstItem="axc-Ye-Q9d" firstAttribute="centerX" secondItem="3Cn-ny-jCq" secondAttribute="centerX" id="F8x-VK-cam"/>
+                            <constraint firstItem="axc-Ye-Q9d" firstAttribute="leading" secondItem="o1a-gc-enM" secondAttribute="leading" id="OJz-IK-Aul"/>
+                            <constraint firstItem="axc-Ye-Q9d" firstAttribute="bottom" secondItem="eym-xo-iGM" secondAttribute="top" id="R79-OD-xSS"/>
+                            <constraint firstItem="3Cn-ny-jCq" firstAttribute="centerX" secondItem="o1a-gc-enM" secondAttribute="centerX" id="kPP-WK-kH5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Voter" id="M7u-kE-S64"/>
+                    <navigationItem key="navigationItem" title="Voter" id="o83-WL-rpY"/>
+                    <connections>
+                        <outlet property="sessionList" destination="D6K-hV-eOK" id="7OV-Pv-Bcw"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UCD-jj-YaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wmq-0S-Y7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="458"/>
+            <point key="canvasLocation" x="1032.8" y="517.6911544227886"/>
         </scene>
         <!--Host-->
         <scene sceneID="zjV-JT-CDQ">
             <objects>
-                <viewController storyboardIdentifier="sessionSelector" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EPI-1P-V8s" customClass="SessionSelectorViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EPI-1P-V8s" customClass="HostSessionTypeSelectorViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eUE-R3-i40"/>
                         <viewControllerLayoutGuide type="bottom" id="Dmu-56-pwR"/>
@@ -80,24 +127,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This session is for..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-5F-x6J">
-                                <frame key="frameInset" minX="112.5" minY="90" width="150" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This session is for..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8Y-5F-x6J">
+                                <rect key="frame" x="113" y="90" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-aR-fyF">
-                                <frame key="frameInset" minX="149" minY="216" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-aR-fyF">
+                                <rect key="frame" x="149" y="139" width="77" height="30"/>
                                 <state key="normal" title="Complexity"/>
                                 <connections>
                                     <segue destination="nCL-gd-7mi" kind="show" id="fFJ-it-SzR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deL-tf-dnZ">
-                                <frame key="frameInset" minX="136" minY="260" width="103" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deL-tf-dnZ">
+                                <rect key="frame" x="136" y="183" width="103" height="30"/>
                                 <state key="normal" title="Business Value"/>
                                 <connections>
                                     <segue destination="nCL-gd-7mi" kind="show" id="MRj-Ic-Ysq"/>
@@ -105,6 +149,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6S4-aR-fyF" firstAttribute="centerX" secondItem="b8Y-5F-x6J" secondAttribute="centerX" id="0PX-Cj-u0b"/>
+                            <constraint firstItem="6S4-aR-fyF" firstAttribute="top" secondItem="b8Y-5F-x6J" secondAttribute="bottom" constant="28" id="7Ko-Vi-B76"/>
+                            <constraint firstItem="6S4-aR-fyF" firstAttribute="top" secondItem="fzd-6W-nh6" secondAttribute="top" constant="139" id="Dxl-3U-xhp"/>
+                            <constraint firstItem="deL-tf-dnZ" firstAttribute="top" secondItem="6S4-aR-fyF" secondAttribute="bottom" constant="14" id="kfE-Xv-IvX"/>
+                            <constraint firstItem="6S4-aR-fyF" firstAttribute="centerX" secondItem="deL-tf-dnZ" secondAttribute="centerX" id="nXE-Tg-Yii"/>
+                            <constraint firstItem="b8Y-5F-x6J" firstAttribute="centerX" secondItem="fzd-6W-nh6" secondAttribute="centerX" id="woT-Vg-azc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Host" id="aRf-Rm-18W"/>
                     <connections>
@@ -119,7 +171,7 @@
         <!--Session Type-->
         <scene sceneID="IKd-y2-G6l">
             <objects>
-                <viewController storyboardIdentifier="votingSession" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nCL-gd-7mi" customClass="VotingSessionViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nCL-gd-7mi" customClass="HostLobbyViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2eT-DB-qAv"/>
                         <viewControllerLayoutGuide type="bottom" id="SgZ-tE-Sp2"/>
@@ -127,16 +179,100 @@
                     <view key="view" contentMode="scaleToFill" id="vM4-QC-vcX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-Vi-fVz">
+                                <rect key="frame" x="144" y="72" width="87" height="30"/>
+                                <state key="normal" title="Begin Voting"/>
+                                <connections>
+                                    <segue destination="DHm-1R-CZ6" kind="show" id="b0W-gV-oo4"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-LG-d1v">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="peerList" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-2c-lbG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="idCellPeer" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellPeer" rowHeight="62" id="XgF-fk-nnb">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="62"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgF-fk-nnb" id="xxz-7J-4hZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DdI-2c-lbG" firstAttribute="leading" secondItem="Utv-LG-d1v" secondAttribute="leading" id="3ie-P6-wXg"/>
+                                    <constraint firstAttribute="trailing" secondItem="DdI-2c-lbG" secondAttribute="trailing" id="DXS-6S-qcZ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="B9d-Vi-fVz" firstAttribute="top" secondItem="2eT-DB-qAv" secondAttribute="bottom" constant="8" id="0D4-37-6I2"/>
+                            <constraint firstItem="Utv-LG-d1v" firstAttribute="top" secondItem="B9d-Vi-fVz" secondAttribute="bottom" constant="8" symbolic="YES" id="3xb-gi-gUE"/>
+                            <constraint firstItem="Utv-LG-d1v" firstAttribute="leading" secondItem="vM4-QC-vcX" secondAttribute="leading" id="FEm-iB-4Kt"/>
+                            <constraint firstItem="Utv-LG-d1v" firstAttribute="bottom" secondItem="SgZ-tE-Sp2" secondAttribute="top" id="Fui-dx-grA"/>
+                            <constraint firstItem="B9d-Vi-fVz" firstAttribute="centerX" secondItem="Utv-LG-d1v" secondAttribute="centerX" id="LJZ-yI-Fey"/>
+                            <constraint firstAttribute="trailing" secondItem="Utv-LG-d1v" secondAttribute="trailing" id="leh-ou-8uA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Session Type" id="TiF-hD-bdT"/>
                     <connections>
+                        <outlet property="peerList" destination="DdI-2c-lbG" id="DRc-ij-A1C"/>
                         <outlet property="votingSessionTitleBar" destination="TiF-hD-bdT" id="IaX-QG-w8x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJ3-4W-CIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-203"/>
+            <point key="canvasLocation" x="1864.8" y="-203.74812593703149"/>
+        </scene>
+        <!--Voting-->
+        <scene sceneID="wgU-mE-Jud">
+            <objects>
+                <viewController id="DHm-1R-CZ6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ABi-fd-HZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="SZu-C8-8z3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WHf-Jf-QNp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-O9-wfP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="voteValue" selectionStyle="default" indentationWidth="10" id="yKA-75-yC3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKA-75-yC3" id="vkZ-e6-8da">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3hY-O9-wfP" firstAttribute="centerX" secondItem="WHf-Jf-QNp" secondAttribute="centerX" id="WE6-Wb-xx9"/>
+                            <constraint firstItem="3hY-O9-wfP" firstAttribute="top" secondItem="ABi-fd-HZb" secondAttribute="bottom" id="XWc-Jf-EWB"/>
+                            <constraint firstItem="3hY-O9-wfP" firstAttribute="bottom" secondItem="SZu-C8-8z3" secondAttribute="top" id="kvD-Bo-jZD"/>
+                            <constraint firstItem="3hY-O9-wfP" firstAttribute="centerX" secondItem="WHf-Jf-QNp" secondAttribute="centerX" id="t9c-LR-O5c"/>
+                            <constraint firstItem="3hY-O9-wfP" firstAttribute="leading" secondItem="WHf-Jf-QNp" secondAttribute="leading" id="wMs-kt-75b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Voting" id="uLa-Bf-7Z5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKx-74-wmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2728.8000000000002" y="-204.64767616191907"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ddv-tM-knI">

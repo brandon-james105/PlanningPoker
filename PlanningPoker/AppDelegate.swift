@@ -17,10 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var container: Container = {
         let container = SwinjectStoryboard.defaultContainer
+        
         // Service
         
-        container.register(IConnectionManager.self) { r
-            in ConnectionManager()
+        container.register(MPCManager.self) { r
+            in MPCManager.sharedInstance
         }
         
         // View models
@@ -29,13 +30,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             in UserRoleSelectorViewModel()
         }
         
-        container.register(ISessionSelectorViewModel.self) { r
-            in SessionSelectorViewModel()
+        container.register(IHostSessionTypeSelectorViewModel.self) { r
+            in HostSessionTypeSelectorViewModel()
         }
         
-        container.register(IVotingSessionViewModel.self) { r
-            in VotingSessionViewModel(session: container.resolve(IConnectionManager.self)!)
+        container.register(IHostLobbyViewModel.self) { r
+            in HostLobbyViewModel(mpcManager: container.resolve(MPCManager.self)!)
         }
+        
+        container.register(IVoterSessionSelectorViewModel.self) { r
+            in VoterSessionSelectorViewModel(mpcManager: container.resolve(MPCManager.self)!)
+        }
+        
+//        container.register(IVotingCardViewModel.self) { r
+//            in VotingCardViewModel()
+//        }
         
         // Views
         container.registerForStoryboard(UserRoleSelectorViewController.self) {
@@ -43,14 +52,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             c.viewModel = r.resolve(IUserRoleSelectorViewModel.self)!
         }
         
-        container.registerForStoryboard(SessionSelectorViewController.self) {
+        container.registerForStoryboard(HostSessionTypeSelectorViewController.self) {
             r, c in
-            c.viewModel = r.resolve(ISessionSelectorViewModel.self)!
+            c.viewModel = r.resolve(IHostSessionTypeSelectorViewModel.self)!
         }
         
-        container.registerForStoryboard(VotingSessionViewController.self) {
+        container.registerForStoryboard(HostLobbyViewController.self) {
             r, c in
-            c.viewModel = r.resolve(IVotingSessionViewModel.self)!
+            c.viewModel = r.resolve(IHostLobbyViewModel.self)!
+        }
+        
+        container.registerForStoryboard(VoterSessionSelectorViewController.self) {
+            r, c in
+            c.viewModel = r.resolve(IVoterSessionSelectorViewModel.self)!
+        }
+        
+        container.registerForStoryboard(VotingCardViewController.self) {
+            r, c in
+//            c.viewModel = r.resolve(IVotingCardViewModel.self)
         }
         
         return container

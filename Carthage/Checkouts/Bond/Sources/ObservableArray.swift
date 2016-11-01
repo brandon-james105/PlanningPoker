@@ -40,7 +40,7 @@ public protocol ObservableArrayEventProtocol {
   var source: ObservableArray<Item> { get }
 }
 
-public struct ObservableArrayEvent<Item> {
+public struct ObservableArrayEvent<Item>: ObservableArrayEventProtocol {
   public let change: ObservableArrayChange
   public let source: ObservableArray<Item>
 }
@@ -49,7 +49,7 @@ public class ObservableArray<Item>: Collection, SignalProtocol {
   
   fileprivate var array: [Item]
   fileprivate let subject = PublishSubject<ObservableArrayEvent<Item>, NoError>()
-  fileprivate let lock = NSRecursiveLock(name: "ObservableArray")
+  fileprivate let lock = NSRecursiveLock(name: "com.reactivekit.bond.observablearray")
   
   public init(_ array: [Item] = []) {
     self.array = array
@@ -300,7 +300,7 @@ extension Array where Element: Equatable {
 
 extension MutableObservableArray {
   
-  func replace(with array: [Item]) {
+  public func replace(with array: [Item]) {
     lock.atomic {
       self.array = array
       subject.next(ObservableArrayEvent(change: .reset, source: self))

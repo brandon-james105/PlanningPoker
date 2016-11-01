@@ -7,8 +7,16 @@
 //
 
 import Foundation
+import Bond
 
-class Card
+public class Card
 {
+    var face: String = ""
+    var effortValue: Int?
     
+    init (faceValue: String = "")
+    {
+        face = faceValue
+        effortValue = Int.init(faceValue)
+    }
 }

@@ -11,7 +11,7 @@ import MultipeerConnectivity
 
 private let myName = UIDevice.current.name
 
-public class User: Hashable, Equatable, MPCSerializable
+class User: Hashable, Equatable, MPCSerializable
 {
     public var name: String
     public var hashValue: Int { return name.hash }
@@ -39,7 +39,7 @@ public class User: Hashable, Equatable, MPCSerializable
     
 }
 
-public func ==(lhs: User, rhs: User) -> Bool
+func ==(lhs: User, rhs: User) -> Bool
 {
     return lhs.name != rhs.name
 }

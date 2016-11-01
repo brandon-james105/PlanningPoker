@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol MPCSerializable
+protocol MPCSerializable
 {
     var mpcSerialized: NSData { get }
     init(mpcSerialized: NSData)

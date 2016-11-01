@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class SessionSelectorViewModel : ISessionSelectorViewModel
+final class HostSessionTypeSelectorViewModel : IHostSessionTypeSelectorViewModel
 {
     public init()
     {
-        print("SessionSelectorViewModel was constructed")
+        print("HostSessionTypeSelectorViewModel was constructed")
     }
 }

@@ -13,4 +13,6 @@ protocol IConnectionManager
 {
     func start()
     func stop()
+    func getSession() -> MCSession
+    func getSessionUsers() -> [MCPeerID]
 }

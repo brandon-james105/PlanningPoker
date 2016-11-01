@@ -26,9 +26,18 @@ import Foundation
 import ObjectiveC
 import ReactiveKit
 
-public class ProtocolProxy: RKProtocolProxyBase {
+public typealias ArgumentExtractor = (Int, UnsafeMutableRawPointer?) -> Void
+public typealias ReturnValueSetter = (UnsafeMutableRawPointer?) -> Void
 
-  private var invokers: [Selector: ((Int, UnsafeMutableRawPointer) -> Void, ((UnsafeMutableRawPointer) -> Void)?) -> Void] = [:]
+fileprivate func arg<T>(_ extractor: ArgumentExtractor, _ pos: Int) -> T {
+  let arg = UnsafeMutablePointer<T>.allocate(capacity: 1)
+  extractor(pos, arg)
+  return arg.pointee
+}
+
+public class ProtocolProxy: BNDProtocolProxyBase {
+
+  private var invokers: [Selector: (ArgumentExtractor, ReturnValueSetter?) -> Void] = [:]
   private var handlers: [Selector: AnyObject] = [:]
   private weak var object: NSObject?
   private let setter: Selector
@@ -53,13 +62,13 @@ public class ProtocolProxy: RKProtocolProxyBase {
     return invokers[selector] != nil
   }
 
-  public override func invoke(with selector: Selector, argumentExtractor: @escaping (Int, UnsafeMutableRawPointer?) -> Void, setReturnValue: ((UnsafeMutableRawPointer?) -> Void)?) {
+  public override func invoke(with selector: Selector, argumentExtractor: @escaping ArgumentExtractor, setReturnValue: ReturnValueSetter?) {
     guard let invoker = invokers[selector] else { return }
     invoker(argumentExtractor, setReturnValue)
   }
 
   private func registerInvoker<R>(for selector: Selector, block: @escaping () -> R) {
-    invokers[selector] = { extractor, setReturnValue in
+    invokers[selector] = { _, setReturnValue in
       var r = block()
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
@@ -68,9 +77,7 @@ public class ProtocolProxy: RKProtocolProxyBase {
 
   private func registerInvoker<T, R>(for selector: Selector, block: @escaping (T) -> R) {
     invokers[selector] = { extractor, setReturnValue in
-      let a1 = UnsafeMutablePointer<T>.allocate(capacity: 1)
-      extractor(2, a1)
-      var r = block(a1.pointee as T)
+      var r = block(arg(extractor, 2))
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
     registerDelegate()
@@ -78,11 +85,7 @@ public class ProtocolProxy: RKProtocolProxyBase {
 
   private func registerInvoker<T, U, R>(for selector: Selector, block: @escaping (T, U) -> R) {
     invokers[selector] = { extractor, setReturnValue in
-      let a1 = UnsafeMutablePointer<T>.allocate(capacity: 1)
-      extractor(2, a1)
-      let a2 = UnsafeMutablePointer<U>.allocate(capacity: 1)
-      extractor(3, a2)
-      var r = block(a1.pointee as T, a2.pointee as U)
+      var r = block(arg(extractor, 2), arg(extractor, 3))
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
     registerDelegate()
@@ -90,13 +93,7 @@ public class ProtocolProxy: RKProtocolProxyBase {
 
   private func registerInvoker<T, U, V, R>(for selector: Selector, block: @escaping (T, U, V) -> R) {
     invokers[selector] = { extractor, setReturnValue in
-      let a1 = UnsafeMutablePointer<T>.allocate(capacity: 1)
-      extractor(2, a1)
-      let a2 = UnsafeMutablePointer<U>.allocate(capacity: 1)
-      extractor(3, a2)
-      let a3 = UnsafeMutablePointer<V>.allocate(capacity: 1)
-      extractor(4, a3)
-      var r = block(a1.pointee as T, a2.pointee as U, a3.pointee as V)
+      var r = block(arg(extractor, 2), arg(extractor, 3), arg(extractor, 4))
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
     registerDelegate()
@@ -104,15 +101,7 @@ public class ProtocolProxy: RKProtocolProxyBase {
 
   private func registerInvoker<T, U, V, W, R>(for selector: Selector, block: @escaping (T, U, V, W) -> R) {
     invokers[selector] = { extractor, setReturnValue in
-      let a1 = UnsafeMutablePointer<T>.allocate(capacity: 1)
-      extractor(2, a1)
-      let a2 = UnsafeMutablePointer<U>.allocate(capacity: 1)
-      extractor(3, a2)
-      let a3 = UnsafeMutablePointer<V>.allocate(capacity: 1)
-      extractor(4, a3)
-      let a4 = UnsafeMutablePointer<W>.allocate(capacity: 1)
-      extractor(5, a4)
-      var r = block(a1.pointee as T, a2.pointee as U, a3.pointee as V, a4.pointee as W)
+      var r = block(arg(extractor, 2), arg(extractor, 3), arg(extractor, 4), arg(extractor, 5))
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
     registerDelegate()
@@ -120,20 +109,21 @@ public class ProtocolProxy: RKProtocolProxyBase {
 
   private func registerInvoker<T, U, V, W, X, R>(for selector: Selector, block: @escaping (T, U, V, W, X) -> R) {
     invokers[selector] = { extractor, setReturnValue in
-      let a1 = UnsafeMutablePointer<T>.allocate(capacity: 1)
-      extractor(2, a1)
-      let a2 = UnsafeMutablePointer<U>.allocate(capacity: 1)
-      extractor(3, a2)
-      let a3 = UnsafeMutablePointer<V>.allocate(capacity: 1)
-      extractor(4, a3)
-      let a4 = UnsafeMutablePointer<W>.allocate(capacity: 1)
-      extractor(5, a4)
-      let a5 = UnsafeMutablePointer<X>.allocate(capacity: 1)
-      extractor(6, a5)
-      var r = block(a1.pointee as T, a2.pointee as U, a3.pointee as V, a4.pointee as W, a5.pointee as X)
+      var r = block(arg(extractor, 2), arg(extractor, 3), arg(extractor, 4), arg(extractor, 5), arg(extractor, 6))
       if let setReturnValue = setReturnValue { setReturnValue(&r) }
     }
     registerDelegate()
+  }
+
+  private func _signal<S>(for selector: Selector, registerInvoker: (PublishSubject1<S>) -> Void) -> Signal1<S>{
+    if let signal = handlers[selector] {
+      return (signal as! PublishSubject1<S>).toSignal()
+    } else {
+      let subject = PublishSubject1<S>()
+      handlers[selector] = subject
+      registerInvoker(subject)
+      return subject.toSignal()
+    }
   }
 
   /// Maps the given protocol method to a signal. Whenever the method on the target object is called,
@@ -142,15 +132,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - parameter selector: Selector of the method to map.
   /// - parameter dispatch: A closure that dispatches calls to the given PublishSubject.
   public func signal<S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { () -> R in
         return dispatch(subject)
       }
-      return subject.toSignal()
     }
   }
 
@@ -163,15 +148,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String
   /// in place of generic parameter A and R!
   public func signal<A, S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>, A) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { (a: A) -> R in
         return dispatch(subject, a)
       }
-      return subject.toSignal()
     }
   }
 
@@ -184,15 +164,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String
   /// in place of generic parameters A, B and R!
   public func signal<A, B, S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>, A, B) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { (a: A, b: B) -> R in
         return dispatch(subject, a, b)
       }
-      return subject.toSignal()
     }
   }
 
@@ -205,15 +180,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String
   /// in place of generic parameters A, B, C and R!
   public func signal<A, B, C, S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>, A, B, C) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { (a: A, b: B, c: C) -> R in
         return dispatch(subject, a, b, c)
       }
-      return subject.toSignal()
     }
   }
 
@@ -226,15 +196,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String
   /// in place of generic parameters A, B, C, D and R!
   public func signal<A, B, C, D, S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>, A, B, C, D) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { (a: A, b: B, c: C, d: D) -> R in
         return dispatch(subject, a, b, c, d)
       }
-      return subject.toSignal()
     }
   }
 
@@ -247,15 +212,10 @@ public class ProtocolProxy: RKProtocolProxyBase {
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String
   /// in place of generic parameters A, B, C, D, E and R!
   public func signal<A, B, C, D, E, S, R>(for selector: Selector, dispatch: @escaping (PublishSubject<S, NoError>, A, B, C, D, E) -> R) -> Signal1<S> {
-    if let signal = handlers[selector] {
-      return (signal as! PublishSubject<S, NoError>).toSignal()
-    } else {
-      let subject = PublishSubject<S, NoError>()
-      handlers[selector] = subject
+    return _signal(for: selector) { subject in
       registerInvoker(for: selector) { (a: A, b: B, c: C, d: D, e: E) -> R in
         return dispatch(subject, a, b, c, d, e)
       }
-      return subject.toSignal()
     }
   }
 
@@ -331,8 +291,8 @@ extension ProtocolProxy {
   /// Provides a feed for specified protocol method.
   ///
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String!
-  public func feed<A, T, R>(property: Property<A>, to selector: Selector, map: @escaping (A, T) -> R) {
-    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: T) -> R in
+  public func feed<S, A, R>(property: Property<S>, to selector: Selector, map: @escaping (S, A) -> R) {
+    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: A) -> R in
       return map(property.value, a1)
     }
   }
@@ -340,8 +300,8 @@ extension ProtocolProxy {
   /// Provides a feed for specified protocol method.
   ///
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String!
-  public func feed<A, T, U, R>(property: Property<A>, to selector: Selector, map: @escaping (A, T, U) -> R) {
-    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: T, a2: U) -> R in
+  public func feed<S, A, B, R>(property: Property<S>, to selector: Selector, map: @escaping (S, A, B) -> R) {
+    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: A, a2: B) -> R in
       return map(property.value, a1, a2)
     }
   }
@@ -349,8 +309,8 @@ extension ProtocolProxy {
   /// Provides a feed for specified protocol method.
   ///
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String!
-  public func feed<A, T, U, V, R>(property: Property<A>, to selector: Selector, map: @escaping (A, T, U, V) -> R) {
-    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: T, a2: U, a3: V) -> R in
+  public func feed<S, A, B, C, R>(property: Property<S>, to selector: Selector, map: @escaping (S, A, B, C) -> R) {
+    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: A, a2: B, a3: C) -> R in
       return map(property.value, a1, a2, a3)
     }
   }
@@ -358,8 +318,8 @@ extension ProtocolProxy {
   /// Provides a feed for specified protocol method.
   ///
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String!
-  public func feed<A, T, U, V, W, R>(property: Property<A>, to selector: Selector, map: @escaping (A, T, U, V, W) -> R) {
-    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: T, a2: U, a3: V, a4: W) -> R in
+  public func feed<S, A, B, C, D, R>(property: Property<S>, to selector: Selector, map: @escaping (S, A, B, C, D) -> R) {
+    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: A, a2: B, a3: C, a4: D) -> R in
       return map(property.value, a1, a2, a3, a4)
     }
   }
@@ -367,8 +327,8 @@ extension ProtocolProxy {
   /// Provides a feed for specified protocol method.
   ///
   /// - important: This is ObjC API so you have to use ObjC types like NSString instead of String!
-  public func feed<A, T, U, V, W, X, R>(property: Property<A>, to selector: Selector, map: @escaping (A, T, U, V, W, X) -> R) {
-    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: T, a2: U, a3: V, a4: W, a5: X) -> R in
+  public func feed<S, A, B, C, D, E, R>(property: Property<S>, to selector: Selector, map: @escaping (S, A, B, C, D, E) -> R) {
+    let _ = signal(for: selector) { (_: PublishSubject<Void, NoError>, a1: A, a2: B, a3: C, a4: D, a5: E) -> R in
       return map(property.value, a1, a2, a3, a4, a5)
     }
   }

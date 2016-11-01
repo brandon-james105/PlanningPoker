@@ -22,16 +22,12 @@
 //  THE SOFTWARE.
 //
 
-// MARK: - ConnectableSignalType
-
 /// Represents a signal that is started by calling `connect` on it.
 public protocol ConnectableSignalProtocol: SignalProtocol {
 
   /// Start the signal.
   func connect() -> Disposable
 }
-
-// MARK: - RawConnectableSignal
 
 /// Makes a signal connectable through the given subject.
 public final class ConnectableSignal<O: SignalProtocol>: ConnectableSignalProtocol {
@@ -49,11 +45,11 @@ public final class ConnectableSignal<O: SignalProtocol>: ConnectableSignalProtoc
   /// Start the signal.
   public func connect() -> Disposable {
     return lock.atomic {
-      if let connectionDisposable = connectionDisposable {
-        return connectionDisposable
-      } else {
-        return source.observe(with: subject.on)
+      if connectionDisposable == nil {
+        connectionDisposable = source.observe(with: subject.on)
       }
+      
+      return connectionDisposable!
     }
   }
 

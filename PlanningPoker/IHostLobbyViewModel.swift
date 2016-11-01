@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 import Bond
 
-protocol IVotingSessionViewModel
+protocol IHostLobbyViewModel
 {
     // Write the implementation of the viewmodel here.
     var sessionType: String { get set }
-    var voterNames: ObservableArray<User> { get }
-    var session: IConnectionManager { get }
-
-    func startSession()
+    var votingSession: Session { get set }
+    var voterNames: MutableObservableArray<MCPeerID> { get }
+    var mpcManager: MPCManager { get }
 }
