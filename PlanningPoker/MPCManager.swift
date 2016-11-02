@@ -55,9 +55,10 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         advertiser.delegate = self
     }
     
-    func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!)
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
     {
-        let dictionary: [String: AnyObject] = ["data": data, "fromPeer": peerID]
+        print("received data from peer \(peerID.displayName)")
+        let dictionary: [String: AnyObject] = ["data": data as AnyObject, "fromPeer": peerID]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "receivedMPCDataNotification"), object: dictionary)
     }
     
@@ -114,6 +115,7 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState)
     {
+        print(state.stringValue())
         switch state {
         case MCSessionState.connected:
             print("Connected to session: \(session)")
@@ -125,13 +127,6 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         default:
             print("Did not connect to session: \(session)")
         }
-    }
-    
-    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)
-    {
-        print("received data from peer \(peerID.displayName)")
-        let dictionary: [String: AnyObject] = ["data": data as AnyObject, "fromPeer": peerID]
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "receivedMPCDataNotification"), object: dictionary)
     }
     
     func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) { }

@@ -52,9 +52,7 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
     
     internal func foundPeer()
     {
-        let peer = viewModel?.mpcManager.foundPeers.last
-        let session = viewModel?.mpcManager.session
-        viewModel?.mpcManager.browser.invitePeer(peer!, to: session!, withContext: nil, timeout: 20)
+        viewModel?.mpcManager.browser.invitePeer((viewModel?.mpcManager.foundPeers.last)!, to: (viewModel?.mpcManager.session)!, withContext: nil, timeout: 20)
     }
     
     internal func lostPeer(lostPeer peerID: MCPeerID)
