@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 
 class Session
 {
@@ -15,10 +16,13 @@ class Session
     var features: [String] = []
     var featureVotesMap = Dictionary<Double, String>()
     var sessionType: String = ""
+    var mpcSession: MCSession
     
-    init(name: String, sessionType: String)
+    init(name: String, sessionType: String, session: MCSession)
     {
         self.name = name
+        self.mpcSession = session
+        
         switch(sessionType)
         {
             case "Business Value":

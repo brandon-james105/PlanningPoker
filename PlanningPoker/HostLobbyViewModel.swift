@@ -22,7 +22,10 @@ final class HostLobbyViewModel : IHostLobbyViewModel
     {
         print("HostLobbyViewModel was initialized")
         self.mpcManager = mpcManager
-        self.votingSession = Session(name: "New \(self.sessionType) Session", sessionType: self.sessionType)
+        self.votingSession = Session(
+            name: "New \(self.sessionType) Session",
+            sessionType: self.sessionType,
+            session: mpcManager.session)
     }
     
 }

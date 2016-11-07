@@ -13,7 +13,7 @@ import Bond
 class VoterSessionSelectorViewModel : IVoterSessionSelectorViewModel
 {
     let mpcManager: MPCManager
-    var sessionInvitations = MutableObservableArray<String>([])
+    var sessionInvitations = MutableObservableArray<MCPeerID>([])
     
     // Write the implementation of the viewmodel here.
     init(mpcManager: MPCManager)

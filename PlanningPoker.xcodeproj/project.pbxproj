@@ -43,8 +43,6 @@
 		1AAA5AB51DA9D6F100CF2E6E /* HostSessionTypeSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AAF1DA9D6F100CF2E6E /* HostSessionTypeSelectorViewModel.swift */; };
 		1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */; };
 		1AAA5AB71DA9D6F100CF2E6E /* HostLobbyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB11DA9D6F100CF2E6E /* HostLobbyViewModel.swift */; };
-		1AAA5ABB1DA9D74B00CF2E6E /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */; };
-		1AAA5ABC1DA9D74B00CF2E6E /* IConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */; };
 		1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */; };
 		1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */; };
 		1AAA5AC41DA9D94200CF2E6E /* HostLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */; };
@@ -116,8 +114,6 @@
 		1AAA5AAF1DA9D6F100CF2E6E /* HostSessionTypeSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSessionTypeSelectorViewModel.swift; sourceTree = "<group>"; };
 		1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewModel.swift; sourceTree = "<group>"; };
 		1AAA5AB11DA9D6F100CF2E6E /* HostLobbyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostLobbyViewModel.swift; sourceTree = "<group>"; };
-		1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
-		1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IConnectionManager.swift; sourceTree = "<group>"; };
 		1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSessionTypeSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostLobbyViewController.swift; sourceTree = "<group>"; };
@@ -272,8 +268,6 @@
 		1AAA5AB81DA9D70F00CF2E6E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1AAA5AB91DA9D74B00CF2E6E /* ConnectionManager.swift */,
-				1AAA5ABA1DA9D74B00CF2E6E /* IConnectionManager.swift */,
 				1A4147831DAAE6D000BCB289 /* MPCManager.swift */,
 			);
 			name = Services;
@@ -393,14 +387,12 @@
 				1A8F0B241DB5723500B892A5 /* VotingCardViewController.swift in Sources */,
 				1AA69D021DC50F1C00BFD575 /* VoterSessionSelectorViewController.swift in Sources */,
 				1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */,
-				1AAA5ABC1DA9D74B00CF2E6E /* IConnectionManager.swift in Sources */,
 				1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */,
 				1AA69D081DC511A900BFD575 /* VoterSessionSelectorViewModel.swift in Sources */,
 				1AAA5A7A1DA9C72400CF2E6E /* AppDelegate.swift in Sources */,
 				1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */,
 				1AAA5AA81DA9CF1A00CF2E6E /* MPCSerializable.swift in Sources */,
 				1A2E9EFC1DC3C8C700958C91 /* Session.swift in Sources */,
-				1AAA5ABB1DA9D74B00CF2E6E /* ConnectionManager.swift in Sources */,
 				1AAA5AB41DA9D6F100CF2E6E /* IHostLobbyViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,14 +27,13 @@ final class VoterSessionSelectorViewController : UIViewController, UITableViewDe
     override func viewDidDisappear(_ animated: Bool)
     {
         viewModel?.mpcManager.advertiser.stopAdvertisingPeer()
-        viewModel?.mpcManager.foundPeers.removeAll()
     }
     
     func bindViewModel()
     {
         viewModel?.sessionInvitations.bind(to: sessionList) { names, indexPath, tableView in
             let cell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath)
-            cell.textLabel?.text = names[indexPath.row]
+            cell.textLabel?.text = names[indexPath.row].displayName
             return cell
         }
     }
@@ -48,16 +47,16 @@ final class VoterSessionSelectorViewController : UIViewController, UITableViewDe
         print("connected with \(peerID.displayName)")
     }
     
-    internal func invitationWasReceived(fromPeer: String)
+    internal func invitationWasReceived(fromPeer: MCPeerID)
     {
-        print("Invitation was received from \(fromPeer)")
+        print("Invitation was received from \(fromPeer.displayName)")
         viewModel?.sessionInvitations.append(fromPeer)
     }
     
     // Selecting a table view item
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let selectedPeerDisplayName: String = (viewModel?.sessionInvitations[indexPath.row])!
+        let selectedPeerDisplayName: String = (viewModel?.sessionInvitations[indexPath.row])!.displayName
         
         let alert = UIAlertController(title: "", message: "Connect to \(selectedPeerDisplayName)'s session?", preferredStyle: UIAlertControllerStyle.alert)
         

@@ -12,8 +12,8 @@ import SwinjectStoryboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
+    var user: User?
 
     var container: Container = {
         let container = SwinjectStoryboard.defaultContainer
@@ -80,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.backgroundColor = UIColor.white
         window.makeKeyAndVisible()
         self.window = window
+        self.user = User(name: UIDevice.current.name)
         
         let bundle = Bundle(for: UserRoleSelectorViewController.self)
         let storyboard = SwinjectStoryboard.create(name: "Main",

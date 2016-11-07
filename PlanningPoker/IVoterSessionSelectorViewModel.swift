@@ -13,5 +13,5 @@ import Bond
 protocol IVoterSessionSelectorViewModel
 {
     var mpcManager: MPCManager { get }
-    var sessionInvitations: MutableObservableArray<String> { get }
+    var sessionInvitations: MutableObservableArray<MCPeerID> { get }
 }

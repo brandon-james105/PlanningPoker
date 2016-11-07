@@ -17,8 +17,6 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
     @IBOutlet weak var votingSessionTitleBar: UINavigationItem!
     @IBOutlet weak var peerList: UITableView!
 
-    var isAdvertising: Bool!
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -29,7 +27,6 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
         viewModel?.mpcManager.browser.startBrowsingForPeers()
         viewModel?.mpcManager.advertiser.startAdvertisingPeer()
         
-        isAdvertising = true
         bindViewModel()
     }
     
@@ -52,7 +49,10 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
     
     internal func foundPeer()
     {
-        viewModel?.mpcManager.browser.invitePeer((viewModel?.mpcManager.foundPeers.last)!, to: (viewModel?.mpcManager.session)!, withContext: nil, timeout: 20)
+        viewModel?.mpcManager.browser.invitePeer((viewModel?.mpcManager.foundPeers.last)!,
+                                                 to: (viewModel?.votingSession.mpcSession)!,
+                                                 withContext: nil,
+                                                 timeout: 20)
     }
     
     internal func lostPeer(lostPeer peerID: MCPeerID)
@@ -73,7 +73,7 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
         viewModel?.voterNames.append(peerID)
     }
     
-    internal func invitationWasReceived(fromPeer: String)
+    internal func invitationWasReceived(fromPeer: MCPeerID)
     {
         // Do nothing, you are a host
     }
