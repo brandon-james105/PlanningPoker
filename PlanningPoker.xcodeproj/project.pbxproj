@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A07A6D61DEA1E9700F92AE9 /* PlanningPokerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07A6D51DEA1E9700F92AE9 /* PlanningPokerService.swift */; };
+		1A07A6D81DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07A6D71DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift */; };
+		1A07A6DA1DEA483500F92AE9 /* HostFeaturesInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07A6D91DEA483500F92AE9 /* HostFeaturesInputViewModel.swift */; };
+		1A07A6DC1DEA492100F92AE9 /* HostFeaturesInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A07A6DB1DEA492100F92AE9 /* HostFeaturesInputViewController.swift */; };
 		1A2E9EFC1DC3C8C700958C91 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E9EFB1DC3C8C700958C91 /* Session.swift */; };
 		1A4147841DAAE6D000BCB289 /* MPCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4147831DAAE6D000BCB289 /* MPCManager.swift */; };
 		1A62E7801DA9FEF600639743 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */; };
@@ -18,6 +22,7 @@
 		1A62E7861DA9FEF700639743 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; };
 		1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */; };
+		1A80884C1DD53654000F2167 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80884B1DD53654000F2167 /* UserProfileViewController.swift */; };
 		1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E031DAAC5E700299FFC /* Card.swift */; };
 		1A8A2E061DAAC6E800299FFC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E051DAAC6E800299FFC /* README.md */; };
 		1A8F0B221DB5704600B892A5 /* VotingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F0B211DB5704600B892A5 /* VotingViewController.swift */; };
@@ -46,6 +51,7 @@
 		1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */; };
 		1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */; };
 		1AAA5AC41DA9D94200CF2E6E /* HostLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */; };
+		1AFED5DC1DF20D1A00E7281C /* EditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFED5DB1DF20D1A00E7281C /* EditableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -80,9 +86,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A07A6D51DEA1E9700F92AE9 /* PlanningPokerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanningPokerService.swift; sourceTree = "<group>"; };
+		1A07A6D71DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IHostFeaturesInputViewModel.swift; sourceTree = "<group>"; };
+		1A07A6D91DEA483500F92AE9 /* HostFeaturesInputViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostFeaturesInputViewModel.swift; sourceTree = "<group>"; };
+		1A07A6DB1DEA492100F92AE9 /* HostFeaturesInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostFeaturesInputViewController.swift; sourceTree = "<group>"; };
 		1A2E9EFB1DC3C8C700958C91 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A4147831DAAE6D000BCB289 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwissArmyKnife.swift; sourceTree = "<group>"; };
+		1A80884B1DD53654000F2167 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		1A8A2E031DAAC5E700299FFC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1A8A2E051DAAC6E800299FFC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A8F0B211DB5704600B892A5 /* VotingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +128,7 @@
 		1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSessionTypeSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostLobbyViewController.swift; sourceTree = "<group>"; };
+		1AFED5DB1DF20D1A00E7281C /* EditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				1A8F0B2A1DB577C000B892A5 /* CardCell.swift */,
+				1AFED5DB1DF20D1A00E7281C /* EditableTableViewCell.swift */,
 			);
 			name = "Custom UI";
 			sourceTree = "<group>";
@@ -155,6 +168,7 @@
 			children = (
 				1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */,
 				1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */,
+				1A07A6DB1DEA492100F92AE9 /* HostFeaturesInputViewController.swift */,
 				1A8F0B211DB5704600B892A5 /* VotingViewController.swift */,
 			);
 			name = Host;
@@ -192,12 +206,12 @@
 		1AAA5A781DA9C72400CF2E6E /* PlanningPoker */ = {
 			isa = PBXGroup;
 			children = (
+				1AAA5A791DA9C72400CF2E6E /* AppDelegate.swift */,
 				1A64F4B21DC14F570031F95A /* Util */,
 				1AAA5AB81DA9D70F00CF2E6E /* Services */,
 				1AAA5AA51DA9CF1000CF2E6E /* Models */,
 				1AAA5AAA1DA9CF6300CF2E6E /* ViewModels */,
 				1AAA5AAB1DA9CF7100CF2E6E /* Views */,
-				1AAA5A791DA9C72400CF2E6E /* AppDelegate.swift */,
 				1AAA5A801DA9C72400CF2E6E /* Assets.xcassets */,
 				1AAA5A821DA9C72400CF2E6E /* LaunchScreen.storyboard */,
 				1AAA5A851DA9C72400CF2E6E /* Info.plist */,
@@ -242,12 +256,14 @@
 			isa = PBXGroup;
 			children = (
 				1AAA5AAC1DA9D6F100CF2E6E /* IHostSessionTypeSelectorViewModel.swift */,
-				1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */,
 				1AAA5AAE1DA9D6F100CF2E6E /* IHostLobbyViewModel.swift */,
+				1A07A6D71DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift */,
 				1AA69D051DC5119400BFD575 /* IVoterSessionSelectorViewModel.swift */,
+				1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */,
 				1AAA5AAF1DA9D6F100CF2E6E /* HostSessionTypeSelectorViewModel.swift */,
-				1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */,
 				1AAA5AB11DA9D6F100CF2E6E /* HostLobbyViewModel.swift */,
+				1A07A6D91DEA483500F92AE9 /* HostFeaturesInputViewModel.swift */,
+				1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */,
 				1AA69D071DC511A900BFD575 /* VoterSessionSelectorViewModel.swift */,
 			);
 			name = ViewModels;
@@ -257,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				1AAA5A7D1DA9C72400CF2E6E /* Main.storyboard */,
+				1A80884B1DD53654000F2167 /* UserProfileViewController.swift */,
 				1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */,
 				1A8F0B291DB577AA00B892A5 /* Custom UI */,
 				1AA69D031DC510C700BFD575 /* Host */,
@@ -269,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				1A4147831DAAE6D000BCB289 /* MPCManager.swift */,
+				1A07A6D51DEA1E9700F92AE9 /* PlanningPokerService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -374,8 +392,12 @@
 				1AAA5AB71DA9D6F100CF2E6E /* HostLobbyViewModel.swift in Sources */,
 				1AAA5AB21DA9D6F100CF2E6E /* IHostSessionTypeSelectorViewModel.swift in Sources */,
 				1A4147841DAAE6D000BCB289 /* MPCManager.swift in Sources */,
+				1A80884C1DD53654000F2167 /* UserProfileViewController.swift in Sources */,
+				1A07A6DA1DEA483500F92AE9 /* HostFeaturesInputViewModel.swift in Sources */,
+				1A07A6D61DEA1E9700F92AE9 /* PlanningPokerService.swift in Sources */,
 				1AAA5AC41DA9D94200CF2E6E /* HostLobbyViewController.swift in Sources */,
 				1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */,
+				1A07A6DC1DEA492100F92AE9 /* HostFeaturesInputViewController.swift in Sources */,
 				1A8F0B221DB5704600B892A5 /* VotingViewController.swift in Sources */,
 				1AAA5AA91DA9CF1A00CF2E6E /* User.swift in Sources */,
 				1A8F0B2B1DB577C000B892A5 /* CardCell.swift in Sources */,
@@ -389,11 +411,13 @@
 				1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */,
 				1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */,
 				1AA69D081DC511A900BFD575 /* VoterSessionSelectorViewModel.swift in Sources */,
+				1AFED5DC1DF20D1A00E7281C /* EditableTableViewCell.swift in Sources */,
 				1AAA5A7A1DA9C72400CF2E6E /* AppDelegate.swift in Sources */,
 				1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */,
 				1AAA5AA81DA9CF1A00CF2E6E /* MPCSerializable.swift in Sources */,
 				1A2E9EFC1DC3C8C700958C91 /* Session.swift in Sources */,
 				1AAA5AB41DA9D6F100CF2E6E /* IHostLobbyViewModel.swift in Sources */,
+				1A07A6D81DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

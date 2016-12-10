@@ -13,7 +13,7 @@ import SwinjectStoryboard
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var user: User?
+    var user: User = User(name: UIDevice.current.name)
 
     var container: Container = {
         let container = SwinjectStoryboard.defaultContainer
@@ -24,14 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             in MPCManager.sharedInstance
         }
         
+        container.register(PlanningPokerService.self) { r
+            in PlanningPokerService.sharedInstance
+        }
+        
         // View models
         
         container.register(IUserRoleSelectorViewModel.self) { r
-            in UserRoleSelectorViewModel()
+            in UserRoleSelectorViewModel(mpcManager: container.resolve(MPCManager.self)!)
         }
         
         container.register(IHostSessionTypeSelectorViewModel.self) { r
-            in HostSessionTypeSelectorViewModel()
+            in HostSessionTypeSelectorViewModel(planningPokerService: container.resolve(PlanningPokerService.self)!)
         }
         
         container.register(IHostLobbyViewModel.self) { r
@@ -40,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         container.register(IVoterSessionSelectorViewModel.self) { r
             in VoterSessionSelectorViewModel(mpcManager: container.resolve(MPCManager.self)!)
+        }
+        
+        container.register(IHostFeaturesInputViewModel.self) { r
+            in HostFeaturesInputViewModel(planningPokerService: container.resolve(PlanningPokerService.self)!)
         }
         
 //        container.register(IVotingCardViewModel.self) { r
@@ -72,6 +80,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            c.viewModel = r.resolve(IVotingCardViewModel.self)
         }
         
+        container.registerForStoryboard(HostFeaturesInputViewController.self) {
+            r, c in
+            c.viewModel = r.resolve(IHostFeaturesInputViewModel.self)!
+        }
+        
         return container
     }()
     
@@ -80,7 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.backgroundColor = UIColor.white
         window.makeKeyAndVisible()
         self.window = window
-        self.user = User(name: UIDevice.current.name)
         
         let bundle = Bundle(for: UserRoleSelectorViewController.self)
         let storyboard = SwinjectStoryboard.create(name: "Main",

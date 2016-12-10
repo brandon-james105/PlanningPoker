@@ -226,6 +226,10 @@ SWIFT_CLASS("_TtC4Bond13ProtocolProxy")
 @end
 
 
+@interface UIGestureRecognizer (SWIFT_EXTENSION(Bond))
+@end
+
+
 @interface UIImageView (SWIFT_EXTENSION(Bond))
 @end
 

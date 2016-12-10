@@ -37,7 +37,7 @@ Project Timeline:
 * ~~Multipeer connectivity~~ ([Adapted this Tutorial](https://www.ralfebert.de/tutorials/ios-swift-multipeer-connectivity/))
 * Different UI for iPhone and iPad
 * ~~Architect Project in MVVM w/ DI~~ ([MVVM Tutorial](https://github.com/Swinject/SwinjectMVVMExample))
-* Create a client service for Voters w/ multipeer library
+* ~~Create a client service for Voters w/ multipeer library~~ (MPCManager)
 * Create a host service for Facilitators w/ multipeer library
 * Create custom UI
 * Cells

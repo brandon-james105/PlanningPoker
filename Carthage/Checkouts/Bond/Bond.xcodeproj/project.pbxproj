@@ -83,6 +83,7 @@
 		16D30F071D65D7F800C2435D /* NSColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D30F061D65D7F800C2435D /* NSColorWell.swift */; };
 		16D30F091D65D82D00C2435D /* NSAppearanceCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D30F081D65D82C00C2435D /* NSAppearanceCustomization.swift */; };
 		16D30F0B1D65E8C700C2435D /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D30F0A1D65E8C700C2435D /* NSTableView.swift */; };
+		227DEF051DCB87BF00213852 /* UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227DEF041DCB87BF00213852 /* UIGestureRecognizer.swift */; };
 		EC06A8761DBCB147006AEA81 /* NSObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC06A8751DBCB147006AEA81 /* NSObjectTests.swift */; };
 		EC2505B11D3F570500A6E14A /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2505B01D3F570500A6E14A /* UILabel.swift */; };
 		EC2505B31D3F571500A6E14A /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2505B21D3F571500A6E14A /* UITextField.swift */; };
@@ -104,9 +105,9 @@
 		EC9693631D94613A004EB5EE /* Observable2DArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9693601D94613A004EB5EE /* Observable2DArray.swift */; };
 		EC9693661D947243004EB5EE /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16210A3C1D3EC474004AEDF3 /* Bond.framework */; };
 		EC9693671D94724C004EB5EE /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1652178B1D70591E00C9FAEE /* ReactiveKit.framework */; };
-		EC97ED9F1D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NSNotificationCenter.swift */; };
-		EC97EDA01D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NSNotificationCenter.swift */; };
-		EC97EDA11D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NSNotificationCenter.swift */; };
+		EC97ED9F1D6C500B001C54C9 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NotificationCenter.swift */; };
+		EC97EDA01D6C500B001C54C9 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NotificationCenter.swift */; };
+		EC97EDA11D6C500B001C54C9 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97ED9E1D6C500B001C54C9 /* NotificationCenter.swift */; };
 		EC97EDA31D6C50A5001C54C9 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97EDA21D6C50A5001C54C9 /* NSObject+KVO.swift */; };
 		EC97EDA41D6C50A5001C54C9 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97EDA21D6C50A5001C54C9 /* NSObject+KVO.swift */; };
 		EC97EDA51D6C50A5001C54C9 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97EDA21D6C50A5001C54C9 /* NSObject+KVO.swift */; };
@@ -259,6 +260,7 @@
 		16D30F061D65D7F800C2435D /* NSColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSColorWell.swift; sourceTree = "<group>"; };
 		16D30F081D65D82C00C2435D /* NSAppearanceCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAppearanceCustomization.swift; sourceTree = "<group>"; };
 		16D30F0A1D65E8C700C2435D /* NSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTableView.swift; sourceTree = "<group>"; };
+		227DEF041DCB87BF00213852 /* UIGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizer.swift; sourceTree = "<group>"; };
 		EC06A8751DBCB147006AEA81 /* NSObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectTests.swift; sourceTree = "<group>"; };
 		EC2505B01D3F570500A6E14A /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabel.swift; path = Sources/UIKit/UILabel.swift; sourceTree = SOURCE_ROOT; };
 		EC2505B21D3F571500A6E14A /* UITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextField.swift; path = Sources/UIKit/UITextField.swift; sourceTree = SOURCE_ROOT; };
@@ -273,7 +275,7 @@
 		EC96935A1D943B15004EB5EE /* UITableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewTests.swift; sourceTree = "<group>"; };
 		EC96935E1D945CC6004EB5EE /* UICollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewTests.swift; sourceTree = "<group>"; };
 		EC9693601D94613A004EB5EE /* Observable2DArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable2DArray.swift; sourceTree = "<group>"; };
-		EC97ED9E1D6C500B001C54C9 /* NSNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNotificationCenter.swift; sourceTree = "<group>"; };
+		EC97ED9E1D6C500B001C54C9 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		EC97EDA21D6C50A5001C54C9 /* NSObject+KVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+KVO.swift"; sourceTree = "<group>"; };
 		EC97EDA61D6C51F0001C54C9 /* ProtocolProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProtocolProxy.swift; path = Bond/ProtocolProxy.swift; sourceTree = SOURCE_ROOT; };
 		EC97EDA71D6C51F0001C54C9 /* BNDProtocolProxyBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNDProtocolProxyBase.h; path = Bond/BNDProtocolProxyBase.h; sourceTree = SOURCE_ROOT; };
@@ -394,7 +396,7 @@
 				EC97EDA21D6C50A5001C54C9 /* NSObject+KVO.swift */,
 				16D30EF81D65D5FD00C2435D /* CALayer.swift */,
 				16D30EFC1D65D64600C2435D /* NSLayoutConstraint.swift */,
-				EC97ED9E1D6C500B001C54C9 /* NSNotificationCenter.swift */,
+				EC97ED9E1D6C500B001C54C9 /* NotificationCenter.swift */,
 				EC97EDA71D6C51F0001C54C9 /* BNDProtocolProxyBase.h */,
 				EC97EDA81D6C51F0001C54C9 /* BNDProtocolProxyBase.m */,
 				EC2D4A0D1DA8F31700B03A6B /* NSObject+Bond.h */,
@@ -475,6 +477,7 @@
 				ECC4BE581D4A2E1600880DEC /* UIButton.swift */,
 				EC35401B1D462F4700901AA1 /* UIControl.swift */,
 				ECD626F01D4DEB490040C7BF /* UIDatePicker.swift */,
+				227DEF041DCB87BF00213852 /* UIGestureRecognizer.swift */,
 				ECD626F21D4DEFBC0040C7BF /* UIImageView.swift */,
 				EC2505B01D3F570500A6E14A /* UILabel.swift */,
 				ECD626F41D4DF0E00040C7BF /* UINavigationBar.swift */,
@@ -632,7 +635,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Swift Bond";
 				TargetAttributes = {
 					16210A3B1D3EC474004AEDF3 = {
@@ -774,6 +777,7 @@
 				1639C0831D6DD3190045959E /* ObservableDictionary.swift in Sources */,
 				16D30EA81D6587B400C2435D /* UICollectionView.swift in Sources */,
 				ECD626F71D4DF1260040C7BF /* UINavigationItem.swift in Sources */,
+				227DEF051DCB87BF00213852 /* UIGestureRecognizer.swift in Sources */,
 				EC97EDA91D6C51F0001C54C9 /* ProtocolProxy.swift in Sources */,
 				ECD627011D4DF3DD0040C7BF /* UISwitch.swift in Sources */,
 				ECD627051D4DF67E0040C7BF /* UIView.swift in Sources */,
@@ -806,7 +810,7 @@
 				EC2505B31D3F571500A6E14A /* UITextField.swift in Sources */,
 				EC35401C1D462F4700901AA1 /* UIControl.swift in Sources */,
 				1639C08A1D6DD39B0045959E /* Observable.swift in Sources */,
-				EC97ED9F1D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */,
+				EC97ED9F1D6C500B001C54C9 /* NotificationCenter.swift in Sources */,
 				ECD626FB1D4DF1F50040C7BF /* UIRefreshControl.swift in Sources */,
 				EC97EDA31D6C50A5001C54C9 /* NSObject+KVO.swift in Sources */,
 			);
@@ -857,7 +861,7 @@
 				16D30F051D65D7C000C2435D /* NSMenuItem.swift in Sources */,
 				16D30EC41D65988A00C2435D /* NSControl.swift in Sources */,
 				16D30F031D65D79600C2435D /* NSStatusBarButton.swift in Sources */,
-				EC97EDA01D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */,
+				EC97EDA01D6C500B001C54C9 /* NotificationCenter.swift in Sources */,
 				16D30ED01D659E0600C2435D /* NSView.swift in Sources */,
 				1639C0871D6DD3190045959E /* ObservableSet.swift in Sources */,
 				16D30EC21D65961300C2435D /* NSObject.swift in Sources */,
@@ -910,7 +914,7 @@
 				16D30EE91D65D16600C2435D /* UIDatePicker.swift in Sources */,
 				16D30EE71D65D16600C2435D /* UIButton.swift in Sources */,
 				1639C08C1D6DD39B0045959E /* Observable.swift in Sources */,
-				EC97EDA11D6C500B001C54C9 /* NSNotificationCenter.swift in Sources */,
+				EC97EDA11D6C500B001C54C9 /* NotificationCenter.swift in Sources */,
 				EC2D4A161DA8F36B00B03A6B /* NSObject+Bond.m in Sources */,
 				16D30EEF1D65D16600C2435D /* UIRefreshControl.swift in Sources */,
 				EC97EDA51D6C50A5001C54C9 /* NSObject+KVO.swift in Sources */,
@@ -1066,6 +1070,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1087,6 +1092,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

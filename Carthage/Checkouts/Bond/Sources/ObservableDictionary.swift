@@ -40,7 +40,7 @@ public struct ObservableDictionaryEvent<Key: Hashable, Value> {
 
 public class ObservableDictionary<Key: Hashable, Value>: Collection, SignalProtocol {
 
-  fileprivate var dictionary: Dictionary<Key, Value>
+  public fileprivate(set) var dictionary: Dictionary<Key, Value>
   fileprivate let subject = PublishSubject<ObservableDictionaryEvent<Key, Value>, NoError>()
   fileprivate let lock = NSRecursiveLock(name: "com.reactivekit.bond.observabledictionary")
 
@@ -94,6 +94,13 @@ public class ObservableDictionary<Key: Hashable, Value>: Collection, SignalProto
   }
 }
 
+extension ObservableDictionary: Deallocatable {
+
+  public var bnd_deallocated: Signal<Void, NoError> {
+    return subject.disposeBag.deallocated
+  }
+}
+
 public class MutableObservableDictionary<Key: Hashable, Value>: ObservableDictionary<Key, Value> {
 
   public override subscript (key: Key) -> Value? {
@@ -135,25 +142,35 @@ public class MutableObservableDictionary<Key: Hashable, Value>: ObservableDictio
   }
 
   public func replace(with dictionary: Dictionary<Key, Value>) {
-    lock.atomic {
-      self.dictionary = dictionary
-      subject.next(ObservableDictionaryEvent(kind: .reset, source: self))
-    }
+    lock.lock(); defer { lock.unlock() }
+    self.dictionary = dictionary
+    subject.next(ObservableDictionaryEvent(kind: .reset, source: self))
   }
 
   /// Perform batched updates on the dictionary.
   public func batchUpdate(_ update: (MutableObservableDictionary<Key, Value>) -> Void) {
-    lock.atomic {
-      subject.next(ObservableDictionaryEvent(kind: .beginBatchEditing, source: self))
-      update(self)
-      subject.next(ObservableDictionaryEvent(kind: .endBatchEditing, source: self))
-    }
+    lock.lock(); defer { lock.unlock() }
+    subject.next(ObservableDictionaryEvent(kind: .beginBatchEditing, source: self))
+    update(self)
+    subject.next(ObservableDictionaryEvent(kind: .endBatchEditing, source: self))
   }
 
   /// Change the underlying value withouth notifying the observers.
   public func silentUpdate(_ update: (inout Dictionary<Key, Value>) -> Void) {
-    lock.atomic {
-      update(&dictionary)
+    lock.lock(); defer { lock.unlock() }
+    update(&dictionary)
+  }
+}
+
+extension MutableObservableDictionary: BindableProtocol {
+
+  public func bind(signal: Signal<ObservableDictionaryEvent<Key, Value>, NoError>) -> Disposable {
+    return signal
+      .take(until: bnd_deallocated)
+      .observeNext { [weak self] event in
+        guard let s = self else { return }
+        s.dictionary = event.source.dictionary
+        s.subject.next(ObservableDictionaryEvent(kind: event.kind, source: s))
     }
   }
 }
