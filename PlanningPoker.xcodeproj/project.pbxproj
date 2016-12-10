@@ -22,10 +22,6 @@
 		1A62E7861DA9FEF700639743 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; };
 		1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */; };
-		1A6F65FD1DFC9C9200FA9FAE /* PeerKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */; };
-		1A6F65FF1DFC9C9D00FA9FAE /* PeerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */; };
-		1A6F66001DFC9CD300FA9FAE /* PeerKit.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */; };
-		1A6F66011DFC9CDD00FA9FAE /* PeerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A80884C1DD53654000F2167 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80884B1DD53654000F2167 /* UserProfileViewController.swift */; };
 		1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E031DAAC5E700299FFC /* Card.swift */; };
 		1A8A2E061DAAC6E800299FFC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E051DAAC6E800299FFC /* README.md */; };
@@ -67,7 +63,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1A6F66011DFC9CDD00FA9FAE /* PeerKit.framework in Embed Frameworks */,
 				1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */,
 				1A62E7851DA9FEF700639743 /* Swinject.framework in Embed Frameworks */,
 				1A62E7811DA9FEF700639743 /* ReactiveKit.framework in Embed Frameworks */,
@@ -82,7 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				1A6F66001DFC9CD300FA9FAE /* PeerKit.framework.dSYM in Copy dSYMs */,
 				1AAA5AA41DA9CDF700CF2E6E /* ReactiveKit.framework.dSYM in Copy dSYMs */,
 				1AAA5A9D1DA9CD4E00CF2E6E /* Bond.framework.dSYM in Copy dSYMs */,
 				1AAA5A9E1DA9CD5000CF2E6E /* Swinject.framework.dSYM in Copy dSYMs */,
@@ -101,8 +95,6 @@
 		1A2E9EFB1DC3C8C700958C91 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A4147831DAAE6D000BCB289 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwissArmyKnife.swift; sourceTree = "<group>"; };
-		1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PeerKit.framework.dSYM; path = Carthage/Build/iOS/PeerKit.framework.dSYM; sourceTree = "<group>"; };
-		1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PeerKit.framework; path = Carthage/Build/iOS/PeerKit.framework; sourceTree = "<group>"; };
 		1A80884B1DD53654000F2167 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		1A8A2E031DAAC5E700299FFC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1A8A2E051DAAC6E800299FFC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -152,7 +144,6 @@
 				1A62E7841DA9FEF700639743 /* Swinject.framework in Frameworks */,
 				1A62E7801DA9FEF600639743 /* ReactiveKit.framework in Frameworks */,
 				1A62E7821DA9FEF700639743 /* Bond.framework in Frameworks */,
-				1A6F65FF1DFC9C9D00FA9FAE /* PeerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +226,6 @@
 		1AAA5A8D1DA9CB1400CF2E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */,
 				1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */,
 				1AAA5A961DA9CCF100CF2E6E /* Bond.framework */,
 				1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */,
@@ -249,7 +239,6 @@
 			children = (
 				1AAA5AA01DA9CD9900CF2E6E /* ReactiveKit.framework.dSYM */,
 				1AAA5A901DA9CCE700CF2E6E /* Bond.framework.dSYM */,
-				1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */,
 				1AAA5A911DA9CCE700CF2E6E /* Swinject.framework.dSYM */,
 				1AAA5A921DA9CCE700CF2E6E /* SwinjectStoryboard.framework.dSYM */,
 			);
@@ -372,7 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AAA5A841DA9C72400CF2E6E /* LaunchScreen.storyboard in Resources */,
-				1A6F65FD1DFC9C9200FA9FAE /* PeerKit.framework.dSYM in Resources */,
 				1AAA5A811DA9C72400CF2E6E /* Assets.xcassets in Resources */,
 				1AAA5A8C1DA9C99B00CF2E6E /* Cartfile in Resources */,
 				1AAA5A7F1DA9C72400CF2E6E /* Main.storyboard in Resources */,
@@ -392,7 +380,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PeerKit.framework",
 			);
 			name = "Carthage Frameworks";
 			outputPaths = (
