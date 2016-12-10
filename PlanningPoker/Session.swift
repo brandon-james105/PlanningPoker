@@ -11,12 +11,17 @@ import MultipeerConnectivity
 
 class Session
 {
-    var name: String = ""
+    var name: String = "Session"
     var cards: [Card] = []
     var features: [String] = []
-    var featureVotesMap = Dictionary<Double, String>()
-    var sessionType: String = ""
+    var featureVotesMap = Dictionary<String, Card>()
+    var sessionType: String = "Business Value"
     var mpcSession: MCSession
+    
+    init()
+    {
+        mpcSession = MPCManager.sharedInstance.session
+    }
     
     init(name: String, sessionType: String, session: MCSession)
     {
@@ -35,7 +40,7 @@ class Session
         }
     }
     
-    func setUpCards()
+    public func setUpCards()
     {
         cards.removeAll()
         

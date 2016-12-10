@@ -15,7 +15,7 @@ class CardCell: UICollectionViewCell
     
     override init(frame: CGRect)
     {
-        textLabel = UILabel(frame:  CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: frame.size.height))
+        textLabel = UILabel(frame: CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: frame.size.height))
         super.init(frame: frame)
         
         textLabel = UILabel(frame: CGRect(x: 0, y: frame.size.height, width: frame.size.width, height: frame.size.height/3))

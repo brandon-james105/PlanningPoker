@@ -1,4 +1,5 @@
+github "jpsim/PeerKit" "3.0.0"
 github "ReactiveKit/ReactiveKit" "v3.1.1"
 github "Swinject/Swinject" "2.0.0-beta.2"
-github "SwiftBond/Bond" "v5.1.2"
+github "SwiftBond/Bond" "v5.2.0"
 github "Swinject/SwinjectStoryboard" "1.0.0-beta.2"

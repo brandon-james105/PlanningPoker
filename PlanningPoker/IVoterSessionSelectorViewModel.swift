@@ -12,6 +12,6 @@ import Bond
 
 protocol IVoterSessionSelectorViewModel
 {
-    var mpcManager: MPCManager { get }
+    var planningPokerService: PlanningPokerService { get }
     var sessionInvitations: MutableObservableArray<MCPeerID> { get }
 }

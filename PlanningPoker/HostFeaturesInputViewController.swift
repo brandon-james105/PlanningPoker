@@ -41,13 +41,15 @@ class HostFeaturesInputViewController: UIViewController, UITableViewDelegate
         
         newFeatureTextView.bnd_text.observeNext { text in
             self.addFeatureBtn.isEnabled = (text!.isEmpty) ? false : true
-        }.disposeIn(bnd_bag)
+        }
+        .disposeIn(bnd_bag)
         
         addFeatureBtn.bnd_tap.observeNext { e in
             self.features.append(self.newFeatureTextView.text!)
             self.newFeatureTextView.text = ""
             self.addFeatureBtn.isEnabled = false
-        }.disposeIn(bnd_bag)
+        }
+        .disposeIn(bnd_bag)
         
         saveFeaturesBtn.bnd_tap.observeNext { e in
             self.viewModel?.planningPokerService.getSession().features.removeAll()
@@ -55,7 +57,8 @@ class HostFeaturesInputViewController: UIViewController, UITableViewDelegate
             {
                 self.viewModel?.planningPokerService.getSession().features.append(element)
             }
-        }.disposeIn(bnd_bag)
+        }
+        .disposeIn(bnd_bag)
     }
 
     override func didReceiveMemoryWarning()

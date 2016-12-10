@@ -24,7 +24,7 @@ protocol MPCManagerDelegate
 class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate
 {
     var delegate: MPCManagerDelegate?
-    
+
     var session: MCSession!
     
     var peer: MCPeerID!
@@ -43,27 +43,24 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
     {
         super.init()
         
-        peer = MCPeerID(displayName: UIDevice.current.name)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user
+        peer = user.myPeer
         
-        session = MCSession(peer: peer)
-        session.delegate = self
-        
-        browser = MCNearbyServiceBrowser(peer: peer, serviceType: "planpoker-mpc")
-        browser.delegate = self
-        
-        advertiser = MCNearbyServiceAdvertiser(peer: peer, discoveryInfo: nil, serviceType: "planpoker-mpc")
-        advertiser.delegate = self
+        self.setPeer(peer: user.myPeer)
     }
     
     func setPeer(peer: MCPeerID)
     {
         self.peer = peer
-    }
-    
-    func setSession(session: MCSession)
-    {
-        self.session = session
-        self.session.delegate = self
+        session = MCSession(peer: self.peer)
+        session.delegate = self
+        
+        browser = MCNearbyServiceBrowser(peer: self.peer, serviceType: "planpoker-mpc")
+        browser.delegate = self
+        
+        advertiser = MCNearbyServiceAdvertiser(peer: self.peer, discoveryInfo: nil, serviceType: "planpoker-mpc")
+        advertiser.delegate = self
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID)

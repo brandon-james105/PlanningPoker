@@ -22,6 +22,10 @@
 		1A62E7861DA9FEF700639743 /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; };
 		1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AAA5A981DA9CCF100CF2E6E /* SwinjectStoryboard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */; };
+		1A6F65FD1DFC9C9200FA9FAE /* PeerKit.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */; };
+		1A6F65FF1DFC9C9D00FA9FAE /* PeerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */; };
+		1A6F66001DFC9CD300FA9FAE /* PeerKit.framework.dSYM in Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */; };
+		1A6F66011DFC9CDD00FA9FAE /* PeerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A80884C1DD53654000F2167 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80884B1DD53654000F2167 /* UserProfileViewController.swift */; };
 		1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E031DAAC5E700299FFC /* Card.swift */; };
 		1A8A2E061DAAC6E800299FFC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 1A8A2E051DAAC6E800299FFC /* README.md */; };
@@ -51,6 +55,8 @@
 		1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */; };
 		1AAA5AC21DA9D94200CF2E6E /* UserRoleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */; };
 		1AAA5AC41DA9D94200CF2E6E /* HostLobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */; };
+		1AAC24541DFC76EF00096EC5 /* IVotingCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC24531DFC76EF00096EC5 /* IVotingCardViewModel.swift */; };
+		1AAC24561DFC775100096EC5 /* VotingCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC24551DFC775100096EC5 /* VotingCardViewModel.swift */; };
 		1AFED5DC1DF20D1A00E7281C /* EditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFED5DB1DF20D1A00E7281C /* EditableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1A6F66011DFC9CDD00FA9FAE /* PeerKit.framework in Embed Frameworks */,
 				1A62E7871DA9FEF700639743 /* SwinjectStoryboard.framework in Embed Frameworks */,
 				1A62E7851DA9FEF700639743 /* Swinject.framework in Embed Frameworks */,
 				1A62E7811DA9FEF700639743 /* ReactiveKit.framework in Embed Frameworks */,
@@ -75,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				1A6F66001DFC9CD300FA9FAE /* PeerKit.framework.dSYM in Copy dSYMs */,
 				1AAA5AA41DA9CDF700CF2E6E /* ReactiveKit.framework.dSYM in Copy dSYMs */,
 				1AAA5A9D1DA9CD4E00CF2E6E /* Bond.framework.dSYM in Copy dSYMs */,
 				1AAA5A9E1DA9CD5000CF2E6E /* Swinject.framework.dSYM in Copy dSYMs */,
@@ -93,6 +101,8 @@
 		1A2E9EFB1DC3C8C700958C91 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		1A4147831DAAE6D000BCB289 /* MPCManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCManager.swift; sourceTree = "<group>"; };
 		1A64F4B31DC14F900031F95A /* SwissArmyKnife.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwissArmyKnife.swift; sourceTree = "<group>"; };
+		1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PeerKit.framework.dSYM; path = Carthage/Build/iOS/PeerKit.framework.dSYM; sourceTree = "<group>"; };
+		1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PeerKit.framework; path = Carthage/Build/iOS/PeerKit.framework; sourceTree = "<group>"; };
 		1A80884B1DD53654000F2167 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		1A8A2E031DAAC5E700299FFC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		1A8A2E051DAAC6E800299FFC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -128,6 +138,8 @@
 		1AAA5ABD1DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostSessionTypeSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5ABE1DA9D94200CF2E6E /* UserRoleSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRoleSelectorViewController.swift; sourceTree = "<group>"; };
 		1AAA5AC01DA9D94200CF2E6E /* HostLobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HostLobbyViewController.swift; sourceTree = "<group>"; };
+		1AAC24531DFC76EF00096EC5 /* IVotingCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IVotingCardViewModel.swift; sourceTree = "<group>"; };
+		1AAC24551DFC775100096EC5 /* VotingCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingCardViewModel.swift; sourceTree = "<group>"; };
 		1AFED5DB1DF20D1A00E7281C /* EditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +152,7 @@
 				1A62E7841DA9FEF700639743 /* Swinject.framework in Frameworks */,
 				1A62E7801DA9FEF600639743 /* ReactiveKit.framework in Frameworks */,
 				1A62E7821DA9FEF700639743 /* Bond.framework in Frameworks */,
+				1A6F65FF1DFC9C9D00FA9FAE /* PeerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +235,7 @@
 		1AAA5A8D1DA9CB1400CF2E6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A6F65FE1DFC9C9D00FA9FAE /* PeerKit.framework */,
 				1AAA5AA21DA9CDAA00CF2E6E /* ReactiveKit.framework */,
 				1AAA5A961DA9CCF100CF2E6E /* Bond.framework */,
 				1AAA5A971DA9CCF100CF2E6E /* Swinject.framework */,
@@ -235,6 +249,7 @@
 			children = (
 				1AAA5AA01DA9CD9900CF2E6E /* ReactiveKit.framework.dSYM */,
 				1AAA5A901DA9CCE700CF2E6E /* Bond.framework.dSYM */,
+				1A6F65FC1DFC9C9200FA9FAE /* PeerKit.framework.dSYM */,
 				1AAA5A911DA9CCE700CF2E6E /* Swinject.framework.dSYM */,
 				1AAA5A921DA9CCE700CF2E6E /* SwinjectStoryboard.framework.dSYM */,
 			);
@@ -255,16 +270,18 @@
 		1AAA5AAA1DA9CF6300CF2E6E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1AAA5AAC1DA9D6F100CF2E6E /* IHostSessionTypeSelectorViewModel.swift */,
+				1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */,
 				1AAA5AAE1DA9D6F100CF2E6E /* IHostLobbyViewModel.swift */,
 				1A07A6D71DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift */,
+				1AAA5AAC1DA9D6F100CF2E6E /* IHostSessionTypeSelectorViewModel.swift */,
 				1AA69D051DC5119400BFD575 /* IVoterSessionSelectorViewModel.swift */,
-				1AAA5AAD1DA9D6F100CF2E6E /* IUserRoleSelectorViewModel.swift */,
+				1AAC24531DFC76EF00096EC5 /* IVotingCardViewModel.swift */,
 				1AAA5AAF1DA9D6F100CF2E6E /* HostSessionTypeSelectorViewModel.swift */,
 				1AAA5AB11DA9D6F100CF2E6E /* HostLobbyViewModel.swift */,
 				1A07A6D91DEA483500F92AE9 /* HostFeaturesInputViewModel.swift */,
 				1AAA5AB01DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift */,
 				1AA69D071DC511A900BFD575 /* VoterSessionSelectorViewModel.swift */,
+				1AAC24551DFC775100096EC5 /* VotingCardViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -355,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AAA5A841DA9C72400CF2E6E /* LaunchScreen.storyboard in Resources */,
+				1A6F65FD1DFC9C9200FA9FAE /* PeerKit.framework.dSYM in Resources */,
 				1AAA5A811DA9C72400CF2E6E /* Assets.xcassets in Resources */,
 				1AAA5A8C1DA9C99B00CF2E6E /* Cartfile in Resources */,
 				1AAA5A7F1DA9C72400CF2E6E /* Main.storyboard in Resources */,
@@ -374,6 +392,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PeerKit.framework",
 			);
 			name = "Carthage Frameworks";
 			outputPaths = (
@@ -408,6 +427,7 @@
 				1A8A2E041DAAC5E700299FFC /* Card.swift in Sources */,
 				1A8F0B241DB5723500B892A5 /* VotingCardViewController.swift in Sources */,
 				1AA69D021DC50F1C00BFD575 /* VoterSessionSelectorViewController.swift in Sources */,
+				1AAC24561DFC775100096EC5 /* VotingCardViewModel.swift in Sources */,
 				1AAA5AB61DA9D6F100CF2E6E /* UserRoleSelectorViewModel.swift in Sources */,
 				1AAA5AC11DA9D94200CF2E6E /* HostSessionTypeSelectorViewController.swift in Sources */,
 				1AA69D081DC511A900BFD575 /* VoterSessionSelectorViewModel.swift in Sources */,
@@ -416,6 +436,7 @@
 				1A64F4B41DC14F900031F95A /* SwissArmyKnife.swift in Sources */,
 				1AAA5AA81DA9CF1A00CF2E6E /* MPCSerializable.swift in Sources */,
 				1A2E9EFC1DC3C8C700958C91 /* Session.swift in Sources */,
+				1AAC24541DFC76EF00096EC5 /* IVotingCardViewModel.swift in Sources */,
 				1AAA5AB41DA9D6F100CF2E6E /* IHostLobbyViewModel.swift in Sources */,
 				1A07A6D81DEA480D00F92AE9 /* IHostFeaturesInputViewModel.swift in Sources */,
 			);

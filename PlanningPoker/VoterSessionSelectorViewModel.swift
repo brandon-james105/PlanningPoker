@@ -10,15 +10,13 @@ import Foundation
 import MultipeerConnectivity
 import Bond
 
-class VoterSessionSelectorViewModel : IVoterSessionSelectorViewModel
+final class VoterSessionSelectorViewModel : IVoterSessionSelectorViewModel
 {
-    let mpcManager: MPCManager
+    let planningPokerService: PlanningPokerService
     var sessionInvitations = MutableObservableArray<MCPeerID>([])
     
-    // Write the implementation of the viewmodel here.
-    init(mpcManager: MPCManager)
+    init(planningPokerService: PlanningPokerService)
     {
-        print("VoterSessionSelectorViewModel was initialized")
-        self.mpcManager = mpcManager
+        self.planningPokerService = planningPokerService
     }
 }

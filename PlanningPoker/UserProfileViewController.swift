@@ -22,7 +22,8 @@ class UserProfileViewController: UIViewController
         
         saveBtn.bnd_tap.observeNext { e in
             appDelegate.user.setName(name: self.userNameTextField.text!)
-        }.disposeIn(bnd_bag)
+        }
+        .disposeIn(bnd_bag)
     }
     
 }

@@ -8,10 +8,12 @@
 
 import Foundation
 
-final class HostSessionTypeSelectorViewModel : IHostSessionTypeSelectorViewModel
+final class HostSessionTypeSelectorViewModel: IHostSessionTypeSelectorViewModel
 {
-    public init()
+    var planningPokerService: PlanningPokerService
+    
+    init(planningPokerService: PlanningPokerService)
     {
-        print("HostSessionTypeSelectorViewModel was constructed")
+        self.planningPokerService = planningPokerService
     }
 }

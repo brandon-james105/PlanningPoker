@@ -10,8 +10,10 @@ import Foundation
 
 final class UserRoleSelectorViewModel : IUserRoleSelectorViewModel
 {
-    public init()
+    var mpcManager: MPCManager
+    
+    init(mpcManager: MPCManager)
     {
-        print("UserRoleSelectorViewModel was constructed")
+        self.mpcManager = mpcManager
     }
 }

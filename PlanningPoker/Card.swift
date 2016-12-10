@@ -9,14 +9,22 @@
 import Foundation
 import Bond
 
-public class Card
+public class Card: MPCSerializable
 {
     var face: String = ""
-    var effortValue: Int?
+    var effortValue: Double?
+    
+    public var mpcSerialized: NSData { return face.data(using: String.Encoding.utf8)! as NSData }
+    
+    public required init (mpcSerialized: NSData)
+    {
+        self.face = NSString(data: mpcSerialized as Data, encoding: String.Encoding.utf8.rawValue)! as String
+        effortValue = Double.init(self.face)
+    }
     
     init (faceValue: String = "")
     {
         face = faceValue
-        effortValue = Int.init(faceValue)
+        effortValue = Double.init(faceValue)
     }
 }

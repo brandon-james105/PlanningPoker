@@ -15,17 +15,17 @@ final class HostLobbyViewModel : IHostLobbyViewModel
     public var sessionType: String = "Session Type"
     var votingSession: Session
     let voterNames = MutableObservableArray<MCPeerID>([])
-    let mpcManager: MPCManager
+    let planningPokerService: PlanningPokerService
     
     // Write the implementation of the viewmodel here.
-    init(mpcManager: MPCManager)
+    init(planningPokerService: PlanningPokerService)
     {
-        print("HostLobbyViewModel was initialized")
-        self.mpcManager = mpcManager
+        self.planningPokerService = planningPokerService
         self.votingSession = Session(
             name: "New \(self.sessionType) Session",
             sessionType: self.sessionType,
-            session: mpcManager.session)
+            session: self.planningPokerService.getSession().mpcSession)
+        
     }
     
 }

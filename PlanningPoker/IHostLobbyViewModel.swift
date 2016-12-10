@@ -12,9 +12,8 @@ import Bond
 
 protocol IHostLobbyViewModel
 {
-    // Write the implementation of the viewmodel here.
     var sessionType: String { get set }
     var votingSession: Session { get set }
     var voterNames: MutableObservableArray<MCPeerID> { get }
-    var mpcManager: MPCManager { get }
+    var planningPokerService: PlanningPokerService { get }
 }

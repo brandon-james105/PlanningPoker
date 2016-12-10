@@ -10,5 +10,5 @@ import Foundation
 
 protocol IUserRoleSelectorViewModel
 {
-    // Write the implementation of the viewmodel here.
+    var mpcManager: MPCManager { get set }
 }

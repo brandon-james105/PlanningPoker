@@ -14,15 +14,28 @@ final class HostSessionTypeSelectorViewController: UIViewController
     
     @IBOutlet weak var complexityButton: UIButton!
     @IBOutlet weak var businessValueButton: UIButton!
+    @IBOutlet weak var featureDiscussionLabel: UILabel!
     
     override func viewDidLoad()
     {
-        print("Session Selection was loaded")
+        featureDiscussionLabel.text = "There are no features to discuss"
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        let vmFeatures = self.viewModel?.planningPokerService.getSession().features
+        let featureCount: Int = (vmFeatures?.count)!
+        
+        if (featureCount > 0)
+        {
+            featureDiscussionLabel.text = "There are \(featureCount) features to discuss"
+        }
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (sender is UIButton)
+        if (segue.destination is HostLobbyViewController)
         {
             let sender = sender as! UIButton;
             let hostLobbyVC = segue.destination as! HostLobbyViewController;

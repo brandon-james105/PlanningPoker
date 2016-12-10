@@ -163,7 +163,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t9b-CK-Zg2">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="votingCardCell" id="t9b-CK-Zg2">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -183,6 +183,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select a Card" id="TYr-7Q-LEi"/>
+                    <connections>
+                        <outlet property="votingCardDisplay" destination="Z0C-IT-jiH" id="Xqn-HE-lM4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T43-nM-bnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -344,7 +347,7 @@
                                                 <rect key="frame" x="0.0" y="1" width="343" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YgP-K4-ski" id="A08-PJ-hWA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -443,10 +446,10 @@
             </objects>
             <point key="canvasLocation" x="1864.8" y="-203.74812593703149"/>
         </scene>
-        <!--Voting-->
+        <!--Votes-->
         <scene sceneID="wgU-mE-Jud">
             <objects>
-                <viewController id="DHm-1R-CZ6" sceneMemberID="viewController">
+                <viewController id="DHm-1R-CZ6" customClass="VotingCardViewController" customModule="PlanningPoker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ABi-fd-HZb"/>
                         <viewControllerLayoutGuide type="bottom" id="SZu-C8-8z3"/>
@@ -455,33 +458,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-O9-wfP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9VP-xn-98Q">
+                                <rect key="frame" x="16" y="72" width="343" height="575"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="voteValue" selectionStyle="default" indentationWidth="10" id="yKA-75-yC3">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKA-75-yC3" id="vkZ-e6-8da">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="asi-TZ-eSO">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCell" id="JGI-ug-M3N" customClass="CardCell" customModule="PlanningPoker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3hY-O9-wfP" secondAttribute="trailing" id="GGh-gR-bkC"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="centerX" secondItem="WHf-Jf-QNp" secondAttribute="centerX" id="WE6-Wb-xx9"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="top" secondItem="ABi-fd-HZb" secondAttribute="bottom" id="XWc-Jf-EWB"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="bottom" secondItem="SZu-C8-8z3" secondAttribute="top" id="kvD-Bo-jZD"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="leading" secondItem="WHf-Jf-QNp" secondAttribute="leading" id="nef-nL-CpQ"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="centerX" secondItem="WHf-Jf-QNp" secondAttribute="centerX" id="t9c-LR-O5c"/>
-                            <constraint firstItem="3hY-O9-wfP" firstAttribute="leading" secondItem="WHf-Jf-QNp" secondAttribute="leading" id="wMs-kt-75b"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Voting" id="uLa-Bf-7Z5"/>
+                    <navigationItem key="navigationItem" title="Votes" id="uLa-Bf-7Z5"/>
+                    <connections>
+                        <outlet property="votingCardDisplay" destination="9VP-xn-98Q" id="Zup-d9-I5I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKx-74-wmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

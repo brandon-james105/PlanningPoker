@@ -10,5 +10,5 @@ import Foundation
 
 protocol IHostSessionTypeSelectorViewModel
 {
-    // Write the implementation of the viewmodel here.
+    var planningPokerService: PlanningPokerService { get set }
 }

@@ -16,16 +16,17 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
     
     @IBOutlet weak var votingSessionTitleBar: UINavigationItem!
     @IBOutlet weak var peerList: UITableView!
-
+    @IBOutlet weak var beginVotingBtn: UIButton!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         votingSessionTitleBar.title = self.viewModel?.sessionType
         peerList.delegate = self
-        viewModel?.mpcManager.delegate = self
+        viewModel?.planningPokerService.mpcManager.delegate = self
         
-        viewModel?.mpcManager.browser.startBrowsingForPeers()
-        viewModel?.mpcManager.advertiser.startAdvertisingPeer()
+        viewModel?.planningPokerService.mpcManager.browser.startBrowsingForPeers()
+        viewModel?.planningPokerService.mpcManager.advertiser.startAdvertisingPeer()
         
         bindViewModel()
     }
@@ -38,18 +39,23 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
             cell.textLabel?.text = user.displayName
             return cell
         }
+        
+        beginVotingBtn.bnd_tap.observeNext { e in
+            self.viewModel?.planningPokerService.sendSessionInit()
+        }
+        .disposeIn(bnd_bag)
     }
     
     override func viewDidDisappear(_ animated: Bool)
     {
-        viewModel?.mpcManager.advertiser?.stopAdvertisingPeer()
-        viewModel?.mpcManager.browser?.stopBrowsingForPeers()
-        viewModel?.mpcManager.foundPeers.removeAll()
+        viewModel?.planningPokerService.mpcManager.advertiser?.stopAdvertisingPeer()
+        viewModel?.planningPokerService.mpcManager.browser?.stopBrowsingForPeers()
+        viewModel?.planningPokerService.mpcManager.foundPeers.removeAll()
     }
     
     internal func foundPeer()
     {
-        viewModel?.mpcManager.browser.invitePeer((viewModel?.mpcManager.foundPeers.last)!,
+        viewModel?.planningPokerService.mpcManager.browser.invitePeer((viewModel?.planningPokerService.mpcManager.foundPeers.last)!,
                                                  to: (viewModel?.votingSession.mpcSession)!,
                                                  withContext: nil,
                                                  timeout: 20)

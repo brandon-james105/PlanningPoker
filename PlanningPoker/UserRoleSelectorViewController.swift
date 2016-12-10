@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
 final class UserRoleSelectorViewController: UIViewController
 {
@@ -14,10 +15,19 @@ final class UserRoleSelectorViewController: UIViewController
     
     @IBOutlet weak var toHostButton: UIButton!
     @IBOutlet weak var toVoterButton: UIButton!
+    @IBOutlet weak var userNameButton: UIButton!
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated: Bool)
     {
-        print("Role Selection was loaded")
+        setButtonTitleToUserName()
+    }
+    
+    private func setButtonTitleToUserName()
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let user = appDelegate.user;
+        userNameButton.setTitle(user.name, for: UIControlState.normal)
+        viewModel?.mpcManager.setPeer(peer: appDelegate.user.myPeer)
     }
     
 }

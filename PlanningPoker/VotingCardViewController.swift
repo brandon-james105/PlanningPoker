@@ -11,22 +11,26 @@ import UIKit
 
 final class VotingCardViewController: UIViewController
 {
-//    public var viewModel: IVotingCardViewModel?
+    public var viewModel: VotingCardViewModel?
     @IBOutlet weak var votingCardDisplay: UICollectionView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-//        votingCardDisplay!.register(CardCell.self, forCellWithReuseIdentifier: "cardNum")
-//        
-//        viewModel?.cards.bind(to: votingCardDisplay) { array, indexPath, votingCardDisplay in
-//            let cell = votingCardDisplay.dequeueReusableCell(withReuseIdentifier: "cardNum", for: indexPath) as! CardCell
-//            let card = array[indexPath.item]
-//
-//            cell.textLabel.text = card.face
-//            
-//            return cell
-//        }
+        votingCardDisplay!.register(CardCell.self, forCellWithReuseIdentifier: "votingCardCell")
+        
+        viewModel?.cards.bind(to: votingCardDisplay) { array, indexPath, votingCardDisplay in
+            let cell = votingCardDisplay.dequeueReusableCell(withReuseIdentifier: "votingCardCell", for: indexPath) as! CardCell
+            let card = array[indexPath.item]
+
+            cell.textLabel?.text = card.face
+//            cell.textLabel?.bnd_tap.observeNext { e in
+//                print("clicked \(card.face), which has a value of: \(card.effortValue)")
+//            }
+//            .disposeIn(cell.bnd_bag)
+            
+            return cell
+        }
     }
 }
