@@ -20,7 +20,7 @@ final class VotingCardViewModel
     {
         self.planningPokerService = planningPokerService
         self.session = planningPokerService.getSession()
-        session.setUpCards()
-        cards = ObservableArray<Card>(self.planningPokerService.getSession().cards)
+        
+        cards = ObservableArray<Card>(CardManager.setUpCards(forType: session.sessionType))
     }
 }

@@ -19,6 +19,8 @@ protocol MPCManagerDelegate
     func invitationWasReceived(fromPeer: MCPeerID)
     
     func connectedWithPeer(peerID: MCPeerID)
+    
+    func notConnectedWithPeer(peerID: MCPeerID)
 }
 
 class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate
@@ -130,8 +132,8 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
             
         case MCSessionState.connecting:
             print("Connecting to session: \(session)")
-            
         default:
+            delegate?.notConnectedWithPeer(peerID: peerID)
             print("Did not connect to session: \(session)")
         }
     }
@@ -146,6 +148,10 @@ class MPCManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, M
         
         do {
             try session.send(dataToSend, toPeers: targetPeers, with: MCSessionSendDataMode.reliable)
+        }
+        catch MCError.invalidParameter {
+            print("invalid parameter")
+            return false
         }
         catch _ {
             return false

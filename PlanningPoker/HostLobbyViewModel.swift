@@ -10,7 +10,7 @@ import Foundation
 import Bond
 import MultipeerConnectivity
 
-final class HostLobbyViewModel : IHostLobbyViewModel
+final class HostLobbyViewModel: IHostLobbyViewModel
 {
     public var sessionType: String = "Session Type"
     var votingSession: Session

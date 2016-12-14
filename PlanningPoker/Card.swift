@@ -9,22 +9,29 @@
 import Foundation
 import Bond
 
-public class Card: MPCSerializable
+public class Card
 {
-    var face: String = ""
+    var face: String
     var effortValue: Double?
-    
-    public var mpcSerialized: NSData { return face.data(using: String.Encoding.utf8)! as NSData }
     
     public required init (mpcSerialized: NSData)
     {
-        self.face = NSString(data: mpcSerialized as Data, encoding: String.Encoding.utf8.rawValue)! as String
-        effortValue = Double.init(self.face)
+        let dict = NSKeyedUnarchiver.unarchiveObject(with: mpcSerialized as Data) as! [String: String]
+        face = dict["face"]!
+        effortValue = Double.init(dict["efforValue"]!)
     }
     
-    init (faceValue: String = "")
+    init (faceValue: String = "0")
     {
         face = faceValue
         effortValue = Double.init(faceValue)
+        if (effortValue == nil)
+        {
+            effortValue = 0
+        }
+        if (faceValue == "½")
+        {
+            effortValue = 0.5
+        }
     }
 }

@@ -31,10 +31,9 @@ final class VoterSessionSelectorViewController: UIViewController, UITableViewDel
         
     }
     
-    override func viewDidDisappear(_ animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
         viewModel?.planningPokerService.mpcManager.advertiser.stopAdvertisingPeer()
-        viewModel?.planningPokerService.getSession().mpcSession.disconnect()
     }
     
     func bindViewModel()
@@ -46,7 +45,6 @@ final class VoterSessionSelectorViewController: UIViewController, UITableViewDel
         }
     }
     
-    // This is here to accomodate for NotificationCenter's addObserver selector parameter
     @objc func handleMPCReceivedDataWithNotification(notification: NSNotification) {
         // Get the dictionary containing the data and the source peer from the notification.
         let receivedDataDictionary = notification.object as! Dictionary<String, AnyObject>
@@ -58,13 +56,10 @@ final class VoterSessionSelectorViewController: UIViewController, UITableViewDel
         // Convert the data (NSData) into a Dictionary object.
         let dataDictionary = NSKeyedUnarchiver.unarchiveObject(with: data! as Data) as! Dictionary<String, String>
         
-        // Check if there's an entry with the "message" key.
-        if dataDictionary["message"] != nil {
-            if (dataDictionary["message"] == "_start_session_")
-            {
-                OperationQueue.main.addOperation { () -> Void in
-                    self.performSegue(withIdentifier: "sessionStart", sender: self)
-                }
+        if dataDictionary["_start_session_"] != nil {
+            self.viewModel?.planningPokerService.getSession().sessionType = dataDictionary["_start_session_"]!
+            OperationQueue.main.addOperation { () -> Void in
+                self.performSegue(withIdentifier: "sessionStart", sender: self)
             }
         }
     }
@@ -78,6 +73,27 @@ final class VoterSessionSelectorViewController: UIViewController, UITableViewDel
         print("connected with \(peerID.displayName)")
     }
     
+    internal func notConnectedWithPeer(peerID: MCPeerID)
+    {
+        let alert = UIAlertController(title: "", message: "There was a problem connecting to \(peerID.displayName)'s session", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let retryAction: UIAlertAction = UIAlertAction(title: "Retry", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            self.viewModel?.planningPokerService.mpcManager.invitationHandler(true, self.viewModel?.planningPokerService.mpcManager.session)
+            self.viewModel?.planningPokerService.getSession().host = peerID
+        }
+        
+        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+            self.viewModel?.planningPokerService.mpcManager.invitationHandler(false, nil)
+        }
+        
+        alert.addAction(retryAction)
+        alert.addAction(dismissAction)
+        
+        OperationQueue.main.addOperation { () -> Void in
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     internal func invitationWasReceived(fromPeer: MCPeerID)
     {
         print("Invitation was received from \(fromPeer.displayName)")
@@ -87,12 +103,14 @@ final class VoterSessionSelectorViewController: UIViewController, UITableViewDel
     // Selecting a table view item
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let selectedPeerDisplayName: String = (viewModel?.sessionInvitations[indexPath.row])!.displayName
+        let peer = (viewModel?.sessionInvitations[indexPath.row])! as MCPeerID
+        let selectedPeerDisplayName: String = peer.displayName
         
         let alert = UIAlertController(title: "", message: "Connect to \(selectedPeerDisplayName)'s session?", preferredStyle: UIAlertControllerStyle.alert)
         
         let acceptAction: UIAlertAction = UIAlertAction(title: "Connect", style: UIAlertActionStyle.default) { (alertAction) -> Void in
             self.viewModel?.planningPokerService.mpcManager.invitationHandler(true, self.viewModel?.planningPokerService.mpcManager.session)
+            self.viewModel?.planningPokerService.getSession().host = peer
         }
         
         let declineAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in

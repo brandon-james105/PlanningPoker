@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             in HostLobbyViewModel(planningPokerService: container.resolve(PlanningPokerService.self)!)
         }
         
+        container.register(IVotingViewModel.self) { r
+            in VotingViewModel(planningPokerService: container.resolve(PlanningPokerService.self)!)
+        }
+        
         container.register(IVoterSessionSelectorViewModel.self) { r
             in VoterSessionSelectorViewModel(planningPokerService: container.resolve(PlanningPokerService.self)!)
         }
@@ -83,6 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         container.registerForStoryboard(VotingViewController.self) {
             r, c in
+            c.viewModel = r.resolve(IVotingViewModel.self)!
         }
         
         container.registerForStoryboard(HostFeaturesInputViewController.self) {

@@ -12,6 +12,20 @@ import MultipeerConnectivity
 
 final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCManagerDelegate
 {
+    internal func notConnectedWithPeer(peerID: MCPeerID)
+    {
+        let alert = UIAlertController(title: "", message: "There was a problem connecting to \(peerID.displayName)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+        }
+        
+        alert.addAction(dismissAction)
+        
+        OperationQueue.main.addOperation { () -> Void in
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
     public var viewModel: IHostLobbyViewModel?
     
     @IBOutlet weak var votingSessionTitleBar: UINavigationItem!
@@ -41,12 +55,12 @@ final class HostLobbyViewController: UIViewController, UITableViewDelegate, MPCM
         }
         
         beginVotingBtn.bnd_tap.observeNext { e in
-            self.viewModel?.planningPokerService.sendSessionInit()
+            self.viewModel?.planningPokerService.sendSessionInit(sessionType: (self.viewModel?.sessionType)!)
         }
         .disposeIn(bnd_bag)
     }
     
-    override func viewDidDisappear(_ animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
         viewModel?.planningPokerService.mpcManager.advertiser?.stopAdvertisingPeer()
         viewModel?.planningPokerService.mpcManager.browser?.stopBrowsingForPeers()

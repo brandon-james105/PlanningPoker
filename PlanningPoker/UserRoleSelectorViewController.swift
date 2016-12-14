@@ -20,6 +20,7 @@ final class UserRoleSelectorViewController: UIViewController
     override func viewDidAppear(_ animated: Bool)
     {
         setButtonTitleToUserName()
+        PlanningPokerService.sharedInstance.getSession().mpcSession.disconnect()
     }
     
     private func setButtonTitleToUserName()

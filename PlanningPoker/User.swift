@@ -12,12 +12,11 @@ import Bond
 
 private let myName = UIDevice.current.name
 
-class User: Hashable, Equatable, MPCSerializable
+class User: Hashable, Equatable
 {
     var name: String = UIDevice.current.name
     var myPeer: MCPeerID
     public var hashValue: Int { return name.hash }
-    public var mpcSerialized: NSData { return name.data(using: String.Encoding.utf8)! as NSData }
     
     public init()
     {
@@ -34,12 +33,6 @@ class User: Hashable, Equatable, MPCSerializable
     {
         self.name = peer.displayName
         self.myPeer = peer
-    }
-    
-    public required init (mpcSerialized: NSData)
-    {
-        name = NSString(data: mpcSerialized as Data, encoding: String.Encoding.utf8.rawValue)! as String
-        myPeer = MCPeerID(displayName: name)
     }
     
     public static func getMe() -> User
